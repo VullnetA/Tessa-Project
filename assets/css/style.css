@@ -52,7 +52,7 @@ This files table contents are outlined below>>>>>
 /*================================================
 Default CSS
 =================================================*/
-@import url("https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400iactive,700,700i,900,900i&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Cabin:400,400i,500,500i,600,600i,700,700i&display=swap");
 body {
   padding: 0;
@@ -1398,7 +1398,12 @@ Navbar CSS
   .navbar-area.header-sticky {
     display: none;
   }
+
+
+
+
 }
+
 
 /*================================================
 Search Overlay CSS
@@ -1578,7 +1583,7 @@ Main Banner CSS
 }
 
 .banner-bg2 {
-  background-image: url(../../assets/img/main-banner2.jpg);
+  background-image: url(../../assets/img/redhair.jpg);
 }
 
 .banner-bg3 {
@@ -1586,11 +1591,11 @@ Main Banner CSS
 }
 
 .banner-bg4 {
-  background-image: url(../../assets/img/offer-bg.jpg);
+  background-image: url(../../assets/img/blackandwhite.jpg);
 }
 
 .banner-bg5 {
-  background-image: url(../../assets/img/main-banner5.jpg);
+  background-image: url(../../assets/img/brownhair.jpg);
 }
 
 .banner-bg6 {
@@ -4919,11 +4924,11 @@ Offer CSS
 }
 
 .offer-area.bg-image1 {
-  background-image: url(../../assets/img/offer-bg.jpg);
+  background-image: url(../../assets/img/oursalon.jpg);
 }
 
 .offer-area.bg-image2 {
-  background-image: url(../../assets/img/offer-bg2.jpg);
+  background-image: url(../../assets/img/adult-taking-care-their-hair.jpg);
 }
 
 .offer-content {
@@ -9734,10 +9739,16 @@ Login CSS
   margin-bottom: 25px;
   font-size: 25px;
   font-weight: 700;
+  text-align: center;
+}
+.login-content{
+  text-align: center;
 }
 
+
 .login-content .login-form {
-  padding-right: 15px;
+  margin: auto;
+  width: 500px;
 }
 
 .login-content .login-form .form-group {
@@ -10522,4 +10533,12 @@ Go Top CSS
 .go-top:hover i {
   margin-top: -3px;
 }
+@media (max-width:400px){
+
+  .login-content .login-form{
+    margin: auto;
+    width: 300px;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
