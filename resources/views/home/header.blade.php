@@ -1,86 +1,93 @@
- <!-- Start Top Header Area -->
- <div class="top-header">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 col-md-12">
-          <ul class="header-contact-info">
-            <li>Welcome to Tessa</li>
-            <li>Call: <a href="tel:+01321654214">+389 78 286 003</a></li>
-            <li>
-              <div class="dropdown language-switcher d-inline-block">
-                <button
-                  class="dropdown-toggle"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <img src="assets/img/us-flag.jpg" alt="image" />
-                  <span>EN <i class="bx bx-chevron-down"></i></span>
-                </button>
-                <div class="dropdown-menu">
-                  <a href="#" class="dropdown-item d-flex align-items-center">
-                    <img
-                      src="assets/img/albania-flag-01.png"
-                      class="shadow-sm"
-                      alt="flag"
-                    />
-                    <span>AL</span>
-                  </a>
-                  <a href="#" class="dropdown-item d-flex align-items-center">
-                    <img
-                      src="assets/img/macedonia-flag-01.png"
-                      class="shadow-sm"
-                      alt="flag"
-                    />
-                    <span>MK</span>
-                  </a>
-           
-            
+<div class="top-header">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 col-md-12">
+        <ul class="header-contact-info">
+          <li>Welcome to Tessa</li>
+          <li>Call: <a href="tel:+01321654214">+389 78 286 003</a></li>
+          <li>
+            <div class="dropdown language-switcher d-inline-block">
+              <button
+                class="dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <img src="{{ asset('assets/img/us-flag.jpg') }}" alt="image" />
+                <span>EN <i class="bx bx-chevron-down"></i></span>
+              </button>
+              <div class="dropdown-menu">
+                <a href="#" class="dropdown-item d-flex align-items-center">
+                  <img
+                    src="{{ asset('assets/img/albania-flag-01.png') }}"
+                    class="shadow-sm"
+                    alt="flag"
+                  />
+                  <span>AL</span>
+                </a>
+                <a href="#" class="dropdown-item d-flex align-items-center">
+                  <img
+                    src="{{ asset('assets/img/macedonia-flag-01.png') }}"
+                    class="shadow-sm"
+                    alt="flag"
+                  />
+                  <span>MK</span>
+                </a>
                 </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="col-lg-6 col-md-12">
-          <ul class="header-top-menu">
-            <li>
-              <a href="login.html"><i class="bx bxs-user"></i> My Account</a>
-            </li>
-            <li>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <ul class="header-top-menu">
+
+        @if (Route::has('login'))
+
+        @auth
+          <li>
+            <a href="login.html"><i class="bx bxs-user"></i> My Account</a>
+          </li>
+
+          <li>
+          <x-app-layout>
+
+          </x-app-layout>
+          </li>
+
+          @else
+          <li>
+            <a href="{{ route('login') }}" ><i class="bx bx-log-in"></i> Login</a>
+          </li>
+          <li>
+            <a href="{{ route('register') }}"><i class="bx bx-log-in"></i> Register</a>
+          </li>
+          @endauth
+
+          @endif
+
+        </ul>
+        <ul class="header-top-others-option">
+          <div class="option-item">
+            <div class="search-btn-box">
+              <i class="search-btn bx bx-search-alt"></i>
+            </div>
+          </div>
+          <div class="option-item">
+            <div class="cart-btn">
               <a
                 href="#"
                 data-bs-toggle="modal"
-                data-bs-target="#shoppingWishlistModal"
-                ><i class="bx bx-heart"></i> Wishlist</a
+                data-bs-target="#shoppingCartModal"
+                ><i class="bx bx-shopping-bag"></i><span>0</span></a
               >
-            </li>
-            <li>
-              <a href="login.html"><i class="bx bx-log-in"></i> Login</a>
-            </li>
-          </ul>
-          <ul class="header-top-others-option">
-            <div class="option-item">
-              <div class="search-btn-box">
-                <i class="search-btn bx bx-search-alt"></i>
-              </div>
             </div>
-            <div class="option-item">
-              <div class="cart-btn">
-                <a
-                  href="#"
-                  data-bs-toggle="modal"
-                  data-bs-target="#shoppingCartModal"
-                  ><i class="bx bx-shopping-bag"></i><span>0</span></a
-                >
-              </div>
-            </div>
-          </ul>
-        </div>
+          </div>
+        </ul>
       </div>
     </div>
   </div>
+</div>
 <!-- End Top Header Area -->
 
 <!-- Start Navbar Area -->
@@ -393,3 +400,4 @@
           </div>
       </div>
       <!-- End Shopping Cart Modal -->
+      
