@@ -179,7 +179,7 @@ trait HasAttributes
     /**
      * The encrypter instance that is used to encrypt attributes.
      *
-     * @var \Illuminate\Contracts\Encryption\Encrypter|null
+     * @var \Illuminate\Contracts\Encryption\Encrypter
      */
     public static $encrypter;
 
@@ -1070,8 +1070,6 @@ trait HasAttributes
         } else {
             unset($this->attributeCastCache[$key]);
         }
-
-        return $this;
     }
 
     /**
@@ -1289,7 +1287,7 @@ trait HasAttributes
     /**
      * Set the encrypter instance that will be used to encrypt attributes.
      *
-     * @param  \Illuminate\Contracts\Encryption\Encrypter|null  $encrypter
+     * @param  \Illuminate\Contracts\Encryption\Encrypter  $encrypter
      * @return void
      */
     public static function encryptUsing($encrypter)

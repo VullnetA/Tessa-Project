@@ -72,6 +72,10 @@
                 <input class="text_color" type="text" name="description" placeholder="Write a description" required="">
                 </div>
                 <div class="div_design">
+                <label>Product Image Here:</label>
+                <input type="file" name="image" required="">
+                </div>
+                <div class="div_design">
                 <label>Product Quantity:</label>
                 <input class="text_color" type="number" min="0" name="quantity" placeholder="Write a quantity" required="">
                 </div>
@@ -84,8 +88,12 @@
                 <input class="text_color" type="text" name="dis_price" placeholder="Write a discount price">
                 </div>
                 <div class="div_design">
-                <label>Product Brand:</label>
+                <label>Product Vendor:</label>
                 <input class="text_color" type="text" name="vendor" placeholder="Write a vendor" required="">
+                </div>
+                <div class="div_design">
+                <label>New:</label>
+                <input class="text_color" type="text" name="new" placeholder="Write 1 if new" required="">
                 </div>
                 <div class="div_design">
                 <label>Product Category:</label>
@@ -96,10 +104,6 @@
                   @endforeach
                 </select>
                 </div>
-                    <div class="div_design">
-                    <label>Product Image Here:</label>
-                    <input type="file" name="image" required="">
-                    </div>
 
                 <div class="div_design">
                 <input type="submit" value="Add Product" class="btn btn-primary">

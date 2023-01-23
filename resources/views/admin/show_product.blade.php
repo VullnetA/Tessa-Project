@@ -68,7 +68,8 @@
                     <th class="th_deg">Quantity</th>
                     <th class="th_deg">Price</th>
                     <th class="th_deg">Discount price</th>
-                    <th class="th_deg">Brand</th>
+                    <th class="th_deg">Vendor</th>
+                    <th class="th_deg">New</th>
                     <th class="th_deg">Image</th>
                     <th class="th_deg">Delete</th>
                     <th class="th_deg">Edit</th>
@@ -82,7 +83,8 @@
                     <td>{{$product->quantity}}</td>
                     <td>{{$product->price}}</td>
                     <td>{{$product->discount_price}}</td>
-                    <td>{{$product->brand}}</td>
+                    <td>{{$product->vendor}}</td>
+                    <td>{{$product->new}}</td>
                     <td>
                         <img class="img_size" src="/product/{{$product->image}}">
                     </td>

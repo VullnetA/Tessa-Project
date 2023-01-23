@@ -31,6 +31,6 @@ class RequestEmail extends Mailable
      */
     public function build()
     {
-        return $this->from('example@gmail.com')->subject('Request')->view('home.sendemail')->with('data', $this->data);
+        return $this->from('va29402@seeu.edu.mk')->subject('Request')->view('home.sendemail')->with('data', $this->data);
     }
 }

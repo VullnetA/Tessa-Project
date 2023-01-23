@@ -23,13 +23,13 @@ class SendEmailController extends Controller
      ]);
 
      $data = array(
-        'name'     =>  $request->name,
-        'surname'  =>  $request->surname,
-        'saloon'   =>  $request->saloon,
-        'address'  =>  $request->address
+        'name'      =>  $request->name,
+        'surname'   =>   $request->surname,
+        'saloon'  =>   $request->saloon,
+        'address'   =>    $request->address
     );
 
-    Mail::to('example@gmail.com')->send(new RequestEmail($data));
+    Mail::to('ns29248@seeu.edu.mk')->send(new RequestEmail($data));
     return redirect()->back()->with('message','Request Sent Successfully');
 
     }

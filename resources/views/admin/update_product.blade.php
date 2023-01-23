@@ -97,8 +97,12 @@
                 <input class="text_color" type="text" name="dis_price" placeholder="Write a discount price" value="{{$product->discount_price}}">
                 </div>
                 <div class="div_design">
-                <label>Product Brand:</label>
+                <label>Product Vendor:</label>
                 <input class="text_color" type="text" name="vendor" placeholder="Write a vendor" required="" value="{{$product->vendor}}">
+                </div>
+                <div class="div_design">
+                <label>New:</label>
+                <input class="text_color" type="text" name="new" placeholder="Write 1 if new" required="" value="{{$product->new}}">
                 </div>
                 <div class="div_design">
                 <label>Product Category:</label>

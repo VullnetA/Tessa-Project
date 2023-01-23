@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SendEmailController;
@@ -17,7 +18,23 @@ use Illuminate\Support\Facades\Mail;
 |
 */
 
-route ::get('/', [HomeController::class, 'index']);
+route::get('/',[HomeController::class,'index']);
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+Route::get('/shop', function () {
+    return view('shop');
+});
+
+Route::get('/courses', function () {
+    return view('courses');
+});
 
 Route::middleware([
     'auth:sanctum',
@@ -29,7 +46,8 @@ Route::middleware([
     })->name('dashboard');
 });
 
-route ::get('/redirect', [HomeController::class, 'redirect']);
+route::get('/redirect',[HomeController::class,'redirect']);
+
 
 Route::get('/view_category',[AdminController::class, 'view_category']);
 
@@ -54,3 +72,9 @@ Route::get('/product_details/{id}',[HomeController::class, 'product_details']);
 Route::get('/sendemail', [SendEmailController::class, 'index']);
 
 Route::post('/sendemail/send', [SendEmailController::class, 'send']);
+
+Route::post('/add_cart/{id}', [HomeController::class, 'add_cart']);
+
+Route::get('/show_cart',[HomeController::class, 'show_cart']);
+
+Route::get('/remove_cart/{id}', [HomeController::class, 'remove_cart']);

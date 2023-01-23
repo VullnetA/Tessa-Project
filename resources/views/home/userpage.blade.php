@@ -19,16 +19,17 @@
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/dark.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+        
         <title>Tessa Academy</title>
 
-        <link rel="icon" type="image/png" href="assets/img/tessapurplelogo-01.png">
+        <link rel="icon" type="image/png" href="{{ asset('assets/img/tessapurplelogo-01.png') }}">
         <script src="cart.js"></script>
     </head>
+    
     <body>
-        
-        <!-- HEADER-->
+        <!-- Start Header Area-->
         @include('home.header')
-        <!-- HEADER END-->
+        <!-- End Header Area-->
 
         <!-- Start Main Banner Area/ slider -->
         @include('home.slider')
@@ -66,24 +67,13 @@
         @include('home.instagram')
         <!-- End Instagram Area -->
 
-
-
         <!-- Start QuickView Modal Area -->
         @include('home.quickview')
         <!-- End QuickView Modal Area -->
 
-
-
-
-
-       
-
-
-
-
         <!-- Start Footer Area -->
         @include('home.footer')
-          <!-- End Footer Area -->
+        <!-- End Footer Area -->
 
         <div class="go-top"><i class='bx bx-up-arrow-alt'></i></div>
 
