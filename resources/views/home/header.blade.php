@@ -56,9 +56,13 @@
                     </li>
 
                     <li>
+<<<<<<< Updated upstream
                     <x-app-layout>
     
                     </x-app-layout>
+=======
+                    
+>>>>>>> Stashed changes
                     </li>
 
                     @else

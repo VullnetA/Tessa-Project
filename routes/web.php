@@ -77,4 +77,12 @@ Route::post('/add_cart/{id}', [HomeController::class, 'add_cart']);
 
 Route::get('/show_cart',[HomeController::class, 'show_cart']);
 
+<<<<<<< Updated upstream
 Route::get('/remove_cart/{id}', [HomeController::class, 'remove_cart']);
+=======
+Route::get('/remove_cart/{id}', [HomeController::class, 'remove_cart']);
+
+Route::get('/checkout', [HomeController::class, 'checkout']);
+
+Route::get('/cash_order',[HomeController::class, 'cash_order']);
+>>>>>>> Stashed changes

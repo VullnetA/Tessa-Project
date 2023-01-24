@@ -33,14 +33,28 @@ class ComposerAutoloaderInitc2bad13633095250235bf277ced9f604
 
         $loader->register(true);
 
+<<<<<<< Updated upstream
         $includeFiles = \Composer\Autoload\ComposerStaticInitc2bad13633095250235bf277ced9f604::$files;
         foreach ($includeFiles as $fileIdentifier => $file) {
             composerRequirec2bad13633095250235bf277ced9f604($fileIdentifier, $file);
+=======
+        $filesToLoad = \Composer\Autoload\ComposerStaticInitc2bad13633095250235bf277ced9f604::$files;
+        $requireFile = static function ($fileIdentifier, $file) {
+            if (empty($GLOBALS['__composer_autoload_files'][$fileIdentifier])) {
+                $GLOBALS['__composer_autoload_files'][$fileIdentifier] = true;
+
+                require $file;
+            }
+        };
+        foreach ($filesToLoad as $fileIdentifier => $file) {
+            ($requireFile)($fileIdentifier, $file);
+>>>>>>> Stashed changes
         }
 
         return $loader;
     }
 }
+<<<<<<< Updated upstream
 
 /**
  * @param string $fileIdentifier
@@ -55,3 +69,5 @@ function composerRequirec2bad13633095250235bf277ced9f604($fileIdentifier, $file)
         require $file;
     }
 }
+=======
+>>>>>>> Stashed changes

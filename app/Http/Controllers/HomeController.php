@@ -11,6 +11,11 @@ use App\Models\User;
 use App\Models\Product;
 
 use App\Models\Cart;
+<<<<<<< Updated upstream
+=======
+
+use App\Models\Order;
+>>>>>>> Stashed changes
 
 class HomeController extends Controller
 {
@@ -57,8 +62,11 @@ class HomeController extends Controller
 
             $cart->phone=$user->phone;
 
+<<<<<<< Updated upstream
             $cart->phone=$user->phone;
 
+=======
+>>>>>>> Stashed changes
             $cart->user_id=$user->id;
 
             $cart->product_title=$product->title;
@@ -66,13 +74,24 @@ class HomeController extends Controller
             if($product->discount_price!=null)
             {
                 $cart->price=$product->discount_price * $request->quantity;
+<<<<<<< Updated upstream
+=======
+                $cart->unitprice=$product->discount_price;
+>>>>>>> Stashed changes
             }
             else
             {
                 $cart->price=$product->price * $request->quantity;
+<<<<<<< Updated upstream
             }
             
 
+=======
+                $cart->unitprice=$product->price;
+            }
+            
+            
+>>>>>>> Stashed changes
             $cart->image=$product->image;
 
             $cart->Product_id=$product->id;
@@ -94,10 +113,17 @@ class HomeController extends Controller
     {
         if(Auth::id())
         {
+<<<<<<< Updated upstream
 
             $id=Auth::user()->id;
             $cart=Cart::where('user_id', '=', $id)->get();
         return view('cart.showcart', compact('cart'));
+=======
+            $id=Auth::user()->id;
+            $cart=Cart::where('user_id', '=', $id)->get();
+
+            return view('cart.showcart', compact('cart'));
+>>>>>>> Stashed changes
 
         }
         else
@@ -111,7 +137,58 @@ class HomeController extends Controller
         $cart=Cart::find($id);
 
         $cart->delete();
+<<<<<<< Updated upstream
 
         return redirect()->back();
     }
+=======
+
+        return redirect()->back();
+    }
+
+    public function checkout()
+    {
+        $user=Auth::user();
+
+        $userid=$user->id;
+        $data=cart::where('user_id', '=', $userid)->get();
+
+        return view('checkout.checkout',compact('data'));
+    }
+
+    public function cash_order()
+    {
+        $user=Auth::user();
+
+        $userid=$user->id;
+        $data=cart::where('user_id', '=', $userid)->get();
+
+        foreach($data as $data)
+        {
+            $order=new order;
+            $order->name=$data->name;
+            $order->email=$data->email;
+            $order->phone=$data->phone;
+            $order->user_id=$data->user_id;
+            $order->product_title=$data->product_title;
+            $order->price=$data->price;
+            $order->quantity=$data->quantity;
+            $order->image=$data->image;
+            $order->product_id=$data->Product_id;
+
+            $order->payment_status='cash on delivery';
+            $order->delivery_status='processing';
+
+            $order->save();
+
+            $cart_id=$data->id;
+            $cart=cart::find($cart_id);
+            $cart->delete();
+        }
+
+        return redirect()->back()->with('message', 'We have received your order and will soon ship your product');
+
+    }
+
+>>>>>>> Stashed changes
 }

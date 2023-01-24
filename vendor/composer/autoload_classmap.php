@@ -31,6 +31,7 @@ return array(
     'App\\Mail\\RequestEmail' => $baseDir . '/app/Mail/RequestEmail.php',
     'App\\Models\\Cart' => $baseDir . '/app/Models/Cart.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
+    'App\\Models\\Order' => $baseDir . '/app/Models/Order.php',
     'App\\Models\\Product' => $baseDir . '/app/Models/Product.php',
     'App\\Models\\Request' => $baseDir . '/app/Models/Request.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',

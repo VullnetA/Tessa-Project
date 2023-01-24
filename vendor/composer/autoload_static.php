@@ -585,6 +585,7 @@ class ComposerStaticInitc2bad13633095250235bf277ced9f604
         'App\\Mail\\RequestEmail' => __DIR__ . '/../..' . '/app/Mail/RequestEmail.php',
         'App\\Models\\Cart' => __DIR__ . '/../..' . '/app/Models/Cart.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
+        'App\\Models\\Order' => __DIR__ . '/../..' . '/app/Models/Order.php',
         'App\\Models\\Product' => __DIR__ . '/../..' . '/app/Models/Product.php',
         'App\\Models\\Request' => __DIR__ . '/../..' . '/app/Models/Request.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
