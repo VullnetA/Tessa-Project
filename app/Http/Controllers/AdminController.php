@@ -109,7 +109,7 @@ class AdminController extends Controller
         {
             $imagename=time().'.'.$image->getClientOriginalExtension();
             $request->image->move('product',$imagename);
-    
+
             $product->image=$imagename;
         }
 
@@ -122,6 +122,17 @@ class AdminController extends Controller
     {
         $order=order::all();
 
-        return view('admin.order', compact('order'));  
+        return view('admin.order', compact('order'));
     }
+
+
+    public function delivered($id)
+    {
+        $order=Order::find($id);
+        $order->delivery_status="delivered";
+        $order->payment_status = 'Paid';
+        $order->save();
+        return redirect()->back();
+    }
+
 }

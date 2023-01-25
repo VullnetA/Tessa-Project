@@ -19,7 +19,20 @@ class HomeController extends Controller
     public function index()
     {
         $product=Product::paginate(3);
-        return view('home.userpage',compact('product'));
+
+        if(Auth::id())
+        {
+            $id=Auth::user()->id;
+            $cart=Cart::where('user_id', '=', $id)->get();
+            $count=Cart::count();
+            return view('home.userpage', compact('product', 'cart', 'count'));
+
+        }
+        else
+        {
+            return view('home.userpage', compact('product'));
+        }
+        
     }
 
     public function redirect()

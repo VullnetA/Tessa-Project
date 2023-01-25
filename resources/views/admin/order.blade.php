@@ -1,5 +1,5 @@
 <x-app-layout>
-    
+
 </x-app-layout>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,6 +66,9 @@
                 <th>Payment status</th>
                 <th>Delivery Status</th>
                 <th>Image</th>
+
+                <th>Delivered</th>
+
             </tr>
 
             @foreach($order as $order)
@@ -86,6 +89,16 @@
                 <td>
                     <img class="img_size" src="/product/{{$order->image}}" alt="">
                 </td>
+
+                <td>
+
+                    @if($order->delivery_status=='processing')
+                    <a href="{{url('delivered', $order->id)}}" class="btn btn-primary">Delivered</a>
+                    @else
+                    <p style="color: green;">Delivered</p>
+                    @endif
+                </td>
+
             </tr>
             @endforeach
         </table>
