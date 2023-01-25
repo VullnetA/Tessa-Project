@@ -46,7 +46,7 @@ Route::middleware([
     })->name('dashboard');
 });
 
-route::get('/redirect',[HomeController::class,'redirect']);
+route::get('/redirect',[HomeController::class,'redirect'])->middleware('auth','verified');
 
 
 Route::get('/view_category',[AdminController::class, 'view_category']);
@@ -67,14 +67,22 @@ Route::get('/update_product/{id}',[AdminController::class, 'update_product']);
 
 Route::post('/update_product_confirm/{id}',[AdminController::class, 'update_product_confirm']);
 
+Route::get('/order',[AdminController::class, 'order']);
+
+
+
 Route::get('/product_details/{id}',[HomeController::class, 'product_details']);
-
-Route::get('/sendemail', [SendEmailController::class, 'index']);
-
-Route::post('/sendemail/send', [SendEmailController::class, 'send']);
 
 Route::post('/add_cart/{id}', [HomeController::class, 'add_cart']);
 
 Route::get('/show_cart',[HomeController::class, 'show_cart']);
 
 Route::get('/remove_cart/{id}', [HomeController::class, 'remove_cart']);
+
+Route::get('/checkout', [HomeController::class, 'checkout']);
+
+Route::post('/cash_order',[HomeController::class, 'cash_order']);
+
+Route::get('/sendemail', [SendEmailController::class, 'index']);
+
+Route::post('/sendemail/send', [SendEmailController::class, 'send']);
