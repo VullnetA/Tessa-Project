@@ -70,7 +70,6 @@ Route::post('/update_product_confirm/{id}',[AdminController::class, 'update_prod
 Route::get('/order',[AdminController::class, 'order']);
 
 
-Route::get('/delivered/{id}',[AdminController::class, 'delivered']);
 
 Route::get('/product_details/{id}',[HomeController::class, 'product_details']);
 
@@ -88,3 +87,4 @@ Route::get('/sendemail', [SendEmailController::class, 'index']);
 
 Route::post('/sendemail/send', [SendEmailController::class, 'send']);
 
+Route::get('/search', [AdminController::class, 'searchdata']);
