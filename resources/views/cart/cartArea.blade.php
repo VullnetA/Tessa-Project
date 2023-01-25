@@ -1,11 +1,7 @@
 <!-- Start Cart Area -->
     <section class="cart-area ptb-100">
       <div class="container">
-<<<<<<< Updated upstream
-        <form>
-=======
           
->>>>>>> Stashed changes
           <div class="cart-table table-responsive">
             <table class="table table-bordered">
               <thead>
@@ -24,12 +20,8 @@
                 $totalprice=0;
                 ?>
 
-<<<<<<< Updated upstream
-              @foreach($cart as $cart)
-=======
             @foreach($cart as $cart)
               
->>>>>>> Stashed changes
                 <tr>
                   <td class="product-thumbnail">
                     <a href="#">
@@ -47,18 +39,6 @@
                   </td>
 
                   <td class="product-price">
-<<<<<<< Updated upstream
-                    <span class="unit-amount">{{$cart->price}}</span>
-                  </td>
-
-                  <td class="product-quantity">
-                    <div class="input-counter">
-                      <span class="minus-btn"><i class="bx bx-minus"></i></span>
-                      <input type="text" min="1" value="{{$cart->quantity}}" />
-                      <span class="plus-btn"><i class="bx bx-plus"></i></span>
-                    </div>
-                  </td>
-=======
                     <span class="unit-amount">{{$cart->unitprice}}</span>
                   </td>
 
@@ -69,7 +49,6 @@
                     </div>
                   </td>
                   
->>>>>>> Stashed changes
 
                   <td class="product-subtotal">
                     <span class="subtotal-amount">{{$cart->price}}</span>
@@ -99,10 +78,7 @@
               <div class="col-lg-5 col-sm-5 col-md-5 text-end">
                 <a href="#" class="default-btn">Update Cart</a>
               </div>
-<<<<<<< Updated upstream
-=======
               
->>>>>>> Stashed changes
             </div>
           </div>
 
@@ -113,15 +89,9 @@
               <li>Total <span>{{$totalprice}} MKD</span></li>
             </ul>
 
-<<<<<<< Updated upstream
-            <a href="checkout.html" class="default-btn">Proceed to Checkout</a>
-          </div>
-        </form>
-=======
             <a href="{{url('checkout')}}" class="default-btn">Proceed to Checkout</a>
           </div>
         
->>>>>>> Stashed changes
       </div>
     </section>
 <!-- End Cart Area -->

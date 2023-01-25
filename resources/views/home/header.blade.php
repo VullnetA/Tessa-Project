@@ -56,13 +56,7 @@
                     </li>
 
                     <li>
-<<<<<<< Updated upstream
-                    <x-app-layout>
-    
-                    </x-app-layout>
-=======
                     
->>>>>>> Stashed changes
                     </li>
 
                     @else
@@ -160,7 +154,7 @@
                             href="#"
                             data-bs-toggle="modal"
                             data-bs-target="#shoppingCartModal"
-                            ><i class="bx bx-shopping-bag"></i><span>0</span></a
+                            ><i class="bx bx-shopping-bag"></i><span>{{$count}}</span></a
                           >
                         </div>
                       </div>
@@ -226,7 +220,7 @@
                             href="#"
                             data-bs-toggle="modal"
                             data-bs-target="#shoppingCartModal"
-                            ><i class="bx bx-shopping-bag"></i><span>0</span></a
+                            ><i class="bx bx-shopping-bag"></i><span>{{$count}}</span></a
                           >
                         </div>
                       </div>
@@ -334,81 +328,54 @@
         </div>
 <!-- End Sidebar Modal -->
 
- <!-- Start Shopping Cart Modal -->
+<!-- Start Shopping Cart Modal -->
         <div class="modal right fade shoppingCartModal" id="shoppingCartModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"><i class='bx bx-x'></i></span>
                     </button>
-
+                    <?php
+                    $totalprice=0;
+                    ?>
                     <div class="modal-body">
-                        <h3>My Cart (3)</h3>
-
+                        <h3>My Cart ({{$count}})</h3>
+                        @foreach($cart as $cart)
                         <div class="products-cart-content">
                             <div class="products-cart">
                                 <div class="products-image">
-                                    <a href="#"><img src="assets/img/products/img1.jpg" alt="image"></a>
+                                    <a href="#"><img src="/product/{{$cart->image}}" alt="image"></a>
                                 </div>
 
                                 <div class="products-content">
-                                    <h3><a href="#">Long Sleeve Leopard T-Shirt</a></h3>
-                                    <span>Blue / XS</span>
+                                    <h3><a href="#">{{$cart->product_title}}</a></h3>
+                                    <span></span>
                                     <div class="products-price">
-                                        <span class="qnt-element">1</span>
+                                        <span class="qnt-element">{{$cart->quantity}}</span>
                                         <span>x</span>
-                                        <span class="price">$250.00</span>
+                                        <span class="price">{{$cart->unitprice}}</span>
                                     </div>
-                                    <a href="#" class="remove-btn"><i class='bx bx-trash'></i></a>
+                                    <a href="{{url('remove_cart', $cart->id)}}" class="remove-btn"><i class='bx bx-trash'></i></a>
                                 </div>
                             </div>
 
-                            <div class="products-cart">
-                                <div class="products-image">
-                                    <a href="#"><img src="assets/img/products/img2.jpg" alt="image"></a>
-                                </div>
-
-                                <div class="products-content">
-                                    <h3><a href="#">Causal V-Neck Soft Raglan</a></h3>
-                                    <span>Blue / XS</span>
-                                    <div class="products-price">
-                                        <span>1</span>
-                                        <span>x</span>
-                                        <span class="price">$200.00</span>
-                                    </div>
-                                    <a href="#" class="remove-btn"><i class='bx bx-trash'></i></a>
-                                </div>
-                            </div>
-
-                            <div class="products-cart">
-                                <div class="products-image">
-                                    <a href="#"><img src="assets/img/products/img3.jpg" alt="image"></a>
-                                </div>
-
-                                <div class="products-content">
-                                    <h3><a href="#">Hanes Men's Pullover</a></h3>
-                                    <span>Blue / XS</span>
-                                    <div class="products-price">
-                                        <span>1</span>
-                                        <span>x</span>
-                                        <span class="price">$200.00</span>
-                                    </div>
-                                    <a href="#" class="remove-btn"><i class='bx bx-trash'></i></a>
-                                </div>
-                            </div>
                         </div>
 
+                        <?php
+                        $totalprice=$totalprice + $cart->price
+                        ?>
+                        @endforeach
                         <div class="products-cart-subtotal">
                             <span>Subtotal</span>
-
-                            <span class="subtotal">$524.00</span>
+                            <span class="subtotal">{{$totalprice}}</span>
                         </div>
 
                         <div class="products-cart-btn">
-                            <a href="checkout.html" class="default-btn">Proceed to Checkout</a>
+                            <a href="{{url('checkout')}}" class="default-btn">Proceed to Checkout</a>
                             <a href="{{url('show_cart')}}" class="optional-btn">View Shopping Cart</a>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>

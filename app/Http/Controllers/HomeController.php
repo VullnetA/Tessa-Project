@@ -11,18 +11,28 @@ use App\Models\User;
 use App\Models\Product;
 
 use App\Models\Cart;
-<<<<<<< Updated upstream
-=======
 
 use App\Models\Order;
->>>>>>> Stashed changes
 
 class HomeController extends Controller
 {
     public function index()
     {
         $product=Product::paginate(3);
-        return view('home.userpage',compact('product'));
+
+        if(Auth::id())
+        {
+            $id=Auth::user()->id;
+            $cart=Cart::where('user_id', '=', $id)->get();
+            $count=Cart::count();
+            return view('home.userpage', compact('product', 'cart', 'count'));
+
+        }
+        else
+        {
+            return view('home.userpage', compact('product'));
+        }
+        
     }
 
     public function redirect()
@@ -62,11 +72,6 @@ class HomeController extends Controller
 
             $cart->phone=$user->phone;
 
-<<<<<<< Updated upstream
-            $cart->phone=$user->phone;
-
-=======
->>>>>>> Stashed changes
             $cart->user_id=$user->id;
 
             $cart->product_title=$product->title;
@@ -74,24 +79,15 @@ class HomeController extends Controller
             if($product->discount_price!=null)
             {
                 $cart->price=$product->discount_price * $request->quantity;
-<<<<<<< Updated upstream
-=======
                 $cart->unitprice=$product->discount_price;
->>>>>>> Stashed changes
             }
             else
             {
                 $cart->price=$product->price * $request->quantity;
-<<<<<<< Updated upstream
-            }
-            
-
-=======
                 $cart->unitprice=$product->price;
             }
             
             
->>>>>>> Stashed changes
             $cart->image=$product->image;
 
             $cart->Product_id=$product->id;
@@ -113,17 +109,10 @@ class HomeController extends Controller
     {
         if(Auth::id())
         {
-<<<<<<< Updated upstream
-
-            $id=Auth::user()->id;
-            $cart=Cart::where('user_id', '=', $id)->get();
-        return view('cart.showcart', compact('cart'));
-=======
             $id=Auth::user()->id;
             $cart=Cart::where('user_id', '=', $id)->get();
 
             return view('cart.showcart', compact('cart'));
->>>>>>> Stashed changes
 
         }
         else
@@ -137,11 +126,6 @@ class HomeController extends Controller
         $cart=Cart::find($id);
 
         $cart->delete();
-<<<<<<< Updated upstream
-
-        return redirect()->back();
-    }
-=======
 
         return redirect()->back();
     }
@@ -156,7 +140,7 @@ class HomeController extends Controller
         return view('checkout.checkout',compact('data'));
     }
 
-    public function cash_order()
+    public function cash_order(Request $request)
     {
         $user=Auth::user();
 
@@ -166,9 +150,14 @@ class HomeController extends Controller
         foreach($data as $data)
         {
             $order=new order;
-            $order->name=$data->name;
-            $order->email=$data->email;
-            $order->phone=$data->phone;
+            $order->city=$request->city;
+            $order->firstname=$request->firstname;
+            $order->lastname=$request->lastname;
+            $order->company=$request->company;
+            $order->address=$request->address;
+            $order->phone=$request->phone;
+            $order->postcode=$request->postcode;
+            $order->email=$request->email;
             $order->user_id=$data->user_id;
             $order->product_title=$data->product_title;
             $order->price=$data->price;
@@ -190,5 +179,4 @@ class HomeController extends Controller
 
     }
 
->>>>>>> Stashed changes
 }

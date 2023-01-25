@@ -11,7 +11,8 @@
 
 <section class="checkout-area ptb-100">
       <div class="container">
-        <form>
+        <form action="{{url('/cash_order')}}" method="POST">
+            @csrf
           <div class="row">
             <div class="col-lg-6 col-md-12">
               <div class="billing-details">
@@ -20,13 +21,13 @@
                 <?php
                 $totalprice=0;
                 ?>
-
+                
                 <div class="row">
                   <div class="col-lg-12 col-md-6">
                     <div class="form-group">
                       <label>Town / City <span class="required">*</span></label>
                       <div class="select-box">
-                        <select class="form-control">
+                        <select name="city" class="form-control">
                           <option>Skopje</option>
                           <option>Tetovo</option>
                           <option>Gostivar</option>
@@ -37,39 +38,39 @@
                       </div>
                     </div>
                   </div>
-
+                  
                   <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                       <label>First Name <span class="required">*</span></label>
-                      <input type="text" class="form-control" />
+                      <input type="text" name="firstname" class="form-control" />
                     </div>
                   </div>
 
                   <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                       <label>Last Name <span class="required">*</span></label>
-                      <input type="text" class="form-control" />
+                      <input type="text" name="lastname" class="form-control" />
                     </div>
                   </div>
 
                   <div class="col-lg-12 col-md-12">
                     <div class="form-group">
                       <label>Company Name</label>
-                      <input type="text" class="form-control" />
+                      <input type="text" name="company" class="form-control" />
                     </div>
                   </div>
 
                   <div class="col-lg-12 col-md-6">
                     <div class="form-group">
                       <label>Address <span class="required">*</span></label>
-                      <input type="text" class="form-control" />
+                      <input type="text" name="address" class="form-control" />
                     </div>
                   </div>
 
                   <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                       <label>Phone <span class="required">*</span></label>
-                      <input type="text" class="form-control" />
+                      <input type="text" name="phone" class="form-control" />
                     </div>
                   </div>
 
@@ -78,7 +79,7 @@
                       <label
                         >Postcode / Zip <span class="required">*</span></label
                       >
-                      <input type="text" class="form-control" />
+                      <input type="text" name="postcode" class="form-control" />
                     </div>
                   </div>
 
@@ -87,7 +88,7 @@
                       <label
                         >Email Address <span class="required">*</span></label
                       >
-                      <input type="email" class="form-control" />
+                      <input type="email" name="email" class="form-control" />
                     </div>
                   </div>
                 </div>
@@ -160,11 +161,10 @@
                 </div>
 
                 <div class="payment-box">
-
-                  <a href="{{url('cash_order')}}" class="default-btn">PURCHASE WITH CASH ON DELIVERY</a>
+                  <input type="submit" value="PURCHASE WITH CASH ON DELIVERY" class="default-btn">
                   <a href="#" class="default-btn">PURCHASE WITH CARD PAYMENT</a>
-                  
                 </div>
+            
               </div>
             </div>
           </div>
