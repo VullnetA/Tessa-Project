@@ -24,7 +24,7 @@ class HomeController extends Controller
         {
             $id=Auth::user()->id;
             $cart=Cart::where('user_id', '=', $id)->get();
-            $count=Cart::where('user_id', '=', $id)->count();;
+            $count=Cart::where('user_id', '=', $id)->count();
             return view('home.userpage', compact('product', 'cart', 'count'));
 
         }
@@ -46,7 +46,10 @@ class HomeController extends Controller
         else 
         {
             $product=Product::paginate(3);
-            return view('home.userpage',compact('product'));
+            $id=Auth::user()->id;
+            $cart=Cart::where('user_id', '=', $id)->get();
+            $count=Cart::where('user_id', '=', $id)->count();
+            return view('home.userpage', compact('product', 'cart', 'count'));
         }
     }
 

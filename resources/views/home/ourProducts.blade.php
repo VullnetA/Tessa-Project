@@ -23,7 +23,7 @@
                                      
                                         <li>
                                             <div class="quick-view-btn">
-                                                <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
+                                                <a href="{{url('product_details', $products->id)}}" data-bs-toggle="modal" data-bs-target="#productsQuickView">
                                                     <i class='bx bx-search-alt'></i>
                                                     <span class="tooltip-label">Quick View</span>
                                                 </a>

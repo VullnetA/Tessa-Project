@@ -5,11 +5,11 @@
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"><i class='bx bx-x'></i></span>
                     </button>
-
+                    
                     <div class="row align-items-center">
                         <div class="col-lg-6 col-md-6">
                             <div class="products-image">
-                                <img src="assets/img/quick-view-img.jpg" alt="image">
+                                <img src="" alt="image">
                             </div>
                         </div>
 
@@ -77,6 +77,7 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>

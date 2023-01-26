@@ -122,7 +122,7 @@
                   <div class="collapse navbar-collapse mean-menu">
                     <ul class="navbar-nav">
                       <li class="nav-item">
-                        <a href="/" class="nav-link">Home </a>
+                        <a href="/redirect" class="nav-link">Home </a>
                       </li>
                       <li class="nav-item megamenu">
                         <a href="/shop" class="nav-link active">Shop </a>
