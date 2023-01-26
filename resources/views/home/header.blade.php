@@ -84,7 +84,7 @@
                           href="#"
                           data-bs-toggle="modal"
                           data-bs-target="#shoppingCartModal"
-                          ><i class="bx bx-shopping-bag"></i><span>0</span></a
+                          ><i class="bx bx-shopping-bag"></i><span>{{$count}}</span></a
                         >
                       </div>
                     </div>
@@ -328,7 +328,7 @@
         </div>
 <!-- End Sidebar Modal -->
 
-<!-- Start Shopping Cart Modal -->
+ <!-- Start Shopping Cart Modal -->
         <div class="modal right fade shoppingCartModal" id="shoppingCartModal" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -375,7 +375,6 @@
                             <a href="{{url('show_cart')}}" class="optional-btn">View Shopping Cart</a>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>

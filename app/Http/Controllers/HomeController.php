@@ -24,7 +24,7 @@ class HomeController extends Controller
         {
             $id=Auth::user()->id;
             $cart=Cart::where('user_id', '=', $id)->get();
-            $count=Cart::count();
+            $count=Cart::where('user_id', '=', $id)->count();;
             return view('home.userpage', compact('product', 'cart', 'count'));
 
         }
