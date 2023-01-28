@@ -1,4 +1,17 @@
 <!-- Start Products Area -->
+
+@if(session()->has('message'))
+
+            <div class="alert alert-success">
+
+              <button type="button" class="close" data_dismiss="alert" aria-hidden="true">x</button>
+              
+              {{session()->get('message')}}
+
+            </div>
+
+            @endif
+
         <section class="products-area pb-70">
             <div class="container">
                 <div class="section-title">

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\View;
+
 use App\Models\User;
 
 use App\Models\Product;
@@ -64,9 +66,21 @@ class HomeController extends Controller
         if(Auth::id())
         {
             $user=Auth::user();
+            $user_id=Auth::user()->id;
 
             $product=Product::find($id);
+            
+            // Check if stock is available
+            $getProductStock = Product::getProductStock ($id);
+            if($getProductStock<$request->quantity){
+                return redirect()->back()->with('message', 'Not enough');
+            }
 
+            // Check Product if already exists in the User Cart
+            $countProducts = Cart::where('Product_id', '=', $id)->where('user_id', '=', $user_id)->count();
+
+
+            // Save product in carts table
             $cart=new Cart;
 
             $cart->name=$user->name;
@@ -180,6 +194,35 @@ class HomeController extends Controller
 
         return redirect()->back()->with('message', 'We have received your order and will soon ship your product');
 
+    }
+
+    public function cartUpdate(Request $request){
+        if($request->ajax()){
+            $id=Auth::user()->id;
+            $data = $request->all();
+
+            //Get Cart Details
+            $cartDetails = Cart::find($data['cartid']);
+            
+            $availableStock = Product::select('quantity')->where(['id'=>$cartDetails['Product_id']])->first()->toArray();
+            
+            if($data['qty']>$availableStock['quantity']){
+                $cart=Cart::where('user_id', '=', $id)->get();
+                return response()->json([
+                    'status'=>false,
+                    'message'=>'Product Stock is not available',
+                    'view'=>(String)View::make('cart.cartArea')->with(compact('cart'))
+                ]);
+            }
+
+            Cart::where('id', $data['cartid'])->update(['quantity'=>$data['qty']]);
+            $cart=Cart::where('user_id', '=', $id)->get();
+            return response()->json([
+            'status'=>true, 
+            'view'=>(String)View::make('cart.cartArea')->with(compact('cart'))
+            ]);
+        
+        }
     }
 
 }

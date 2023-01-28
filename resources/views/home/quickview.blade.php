@@ -15,7 +15,7 @@
 
                         <div class="col-lg-6 col-md-6">
                             <div class="products-content">
-                                <h3><a href="#">Long Sleeve Leopard T-Shirt</a></h3>
+                                <h3><a href="#"></a></h3>
 
                                 <div class="price">
                                     <span class="old-price">$210.00</span>
