@@ -4,8 +4,6 @@
                 <div class="section-title">
                     <span class="sub-title">See Our Collection</span>
                     <h2>Recent Products</h2>
-                </div>
-
                 <div class="row">
 
                     @foreach($product as $products)
@@ -20,7 +18,7 @@
 
                                 <div class="products-button">
                                     <ul>
-                                     
+
                                         <li>
                                             <div class="quick-view-btn">
                                                 <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">

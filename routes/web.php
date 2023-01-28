@@ -88,3 +88,7 @@ Route::get('/sendemail', [SendEmailController::class, 'index']);
 Route::post('/sendemail/send', [SendEmailController::class, 'send']);
 
 Route::get('/search', [AdminController::class, 'searchdata']);
+
+Route::get('/searchprod', [AdminController::class, 'searchProd']);
+
+Route::get('/searchuser', [HomeController::class, 'searchProdUser']);

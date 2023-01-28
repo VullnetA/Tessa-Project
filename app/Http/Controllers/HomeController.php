@@ -19,20 +19,7 @@ class HomeController extends Controller
     public function index()
     {
         $product=Product::paginate(3);
-
-        if(Auth::id())
-        {
-            $id=Auth::user()->id;
-            $cart=Cart::where('user_id', '=', $id)->get();
-            $count=Cart::count();
-            return view('home.userpage', compact('product', 'cart', 'count'));
-
-        }
-        else
-        {
-            return view('home.userpage', compact('product'));
-        }
-        
+        return view('home.userpage',compact('product'));
     }
 
     public function redirect()
@@ -43,7 +30,7 @@ class HomeController extends Controller
         {
             return view('admin.home');
         }
-        else 
+        else
         {
             $product=Product::paginate(3);
             return view('home.userpage',compact('product'));
@@ -86,8 +73,8 @@ class HomeController extends Controller
                 $cart->price=$product->price * $request->quantity;
                 $cart->unitprice=$product->price;
             }
-            
-            
+
+
             $cart->image=$product->image;
 
             $cart->Product_id=$product->id;
@@ -177,6 +164,16 @@ class HomeController extends Controller
 
         return redirect()->back()->with('message', 'We have received your order and will soon ship your product');
 
+    }
+
+    public function  searchProdUser(Request $request)
+    {
+        $searchproduct=$request->search;
+
+        $product=product::where('category','LIKE',"%$searchproduct%")->orWhere('vendor','LIKE',"%$searchproduct%")
+            ->orWhere('title','LIKE',"%$searchproduct%")->get();
+
+        return view('home.userpage',compact('product'));
     }
 
 }

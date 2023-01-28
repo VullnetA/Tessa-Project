@@ -1,5 +1,5 @@
 <x-app-layout>
-    
+
 </x-app-layout>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,12 +50,23 @@
             <div class="alert alert-success">
 
               <button type="button" class="close" data_dismiss="alert" aria-hidden="true">x</button>
-              
+
               {{session()->get('message')}}
 
             </div>
 
             @endif
+
+              <div style="padding-left: 400px; padding-bottom: 30px;">
+                  <form action="{{url('searchprod')}}" method="get">
+
+                      @csrf
+
+                      <input type="text" style="color: black;" name="search" placeholder="Search">
+
+                      <input type="submit" value="Search" class="btn btn-outline-primary">
+                  </form>
+              </div>
 
           <h2 class="font_size">All Products</h2>
 
@@ -104,5 +115,6 @@
     <!-- plugins:js -->
       @include('admin.script')
     <!-- End custom js for this page -->
+      </div>
   </body>
 </html>

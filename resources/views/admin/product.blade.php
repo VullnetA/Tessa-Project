@@ -57,6 +57,9 @@
             </div>
             @endif
 
+
+
+                </div>
             <div class="div_center">
                 <h1 class="font_size">Add Product</h1>
 
@@ -120,5 +123,6 @@
     <!-- plugins:js -->
       @include('admin.script')
     <!-- End custom js for this page -->
+    </div>
   </body>
 </html>

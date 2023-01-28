@@ -127,11 +127,23 @@ class AdminController extends Controller
 
     public function  searchdata(Request $request)
     {
-        $search=$request->search;
+        $searchtext=$request->search;
 
-        $order=order::where('name','LIKE',"%SearchText%")->orWhere('phone','LIKE',"%SearchText%")
-            ->orWhere('product_title','LIKE',"%SearchText%")->get();
+        $order=order::where('firstname','LIKE',"%$searchtext%")->orWhere('phone','LIKE',"%$searchtext%")
+            ->orWhere('product_title','LIKE',"%$searchtext%")->get();
 
         return view('admin.order',compact('order'));
     }
+
+    public function  searchProd(Request $request)
+    {
+        $searchproduct=$request->search;
+
+        $product=product::where('category','LIKE',"%$searchproduct%")->orWhere('vendor','LIKE',"%$searchproduct%")
+            ->orWhere('title','LIKE',"%$searchproduct%")->get();
+
+        return view('admin.show_product',compact('product'));
+    }
+
+
 }
