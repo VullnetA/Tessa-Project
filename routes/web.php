@@ -69,6 +69,10 @@ Route::post('/update_product_confirm/{id}',[AdminController::class, 'update_prod
 
 Route::get('/order',[AdminController::class, 'order']);
 
+Route::get('/search', [AdminController::class, 'searchdata']);
+
+Route::get('/delivered/{id}',[AdminController::class, 'delivered']);
+
 
 
 Route::get('/product_details/{id}',[HomeController::class, 'product_details']);
@@ -79,6 +83,8 @@ Route::get('/show_cart',[HomeController::class, 'show_cart']);
 
 Route::get('/remove_cart/{id}', [HomeController::class, 'remove_cart']);
 
+Route::post('/cart/update', [HomeController::class, 'cartUpdate']);
+
 Route::get('/checkout', [HomeController::class, 'checkout']);
 
 Route::post('/cash_order',[HomeController::class, 'cash_order']);
@@ -87,8 +93,10 @@ Route::get('/sendemail', [SendEmailController::class, 'index']);
 
 Route::post('/sendemail/send', [SendEmailController::class, 'send']);
 
+
 Route::get('/search', [AdminController::class, 'searchdata']);
 
 Route::get('/searchprod', [AdminController::class, 'searchProd']);
 
 Route::get('/searchuser', [HomeController::class, 'searchProdUser']);
+
