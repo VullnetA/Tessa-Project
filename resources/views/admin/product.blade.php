@@ -87,6 +87,10 @@
                 <input class="text_color" type="number" name="price" placeholder="Write a price" required="">
                 </div>
                 <div class="div_design">
+                 <label>Stylist Price:</label>
+                 <input class="text_color" type="number" name="Stylistprice" placeholder="Write a price" required="">
+               </div>
+                <div class="div_design">
                 <label>Discount Price:</label>
                 <input class="text_color" type="text" name="dis_price" placeholder="Write a discount price">
                 </div>

@@ -5,17 +5,17 @@
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true"><i class='bx bx-x'></i></span>
                     </button>
-                    
+
                     <div class="row align-items-center">
                         <div class="col-lg-6 col-md-6">
                             <div class="products-image">
-                                <img src="" alt="image">
+                                <img src="assets/img/quick-view-img.jpg" alt="image">
                             </div>
                         </div>
 
                         <div class="col-lg-6 col-md-6">
                             <div class="products-content">
-                                <h3><a href="#"></a></h3>
+                                <h3><a href="#">Long Sleeve Leopard T-Shirt</a></h3>
 
                                 <div class="price">
                                     <span class="old-price">$210.00</span>
@@ -77,7 +77,6 @@
                             </div>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div>

@@ -1,5 +1,5 @@
 <x-app-layout>
-    
+
 </x-app-layout>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,6 +50,19 @@
 
         <h1 class="title_deg">All Orders</h1>
 
+              <div style="padding-left: 400px; padding-bottom: 30px;">
+                  <form action="{{url('search')}}" method="get">
+
+                      @csrf
+
+                      <input type="text" style="color: black;" name="search" placeholder="Search">
+
+                      <input type="submit" value="Search" class="btn btn-outline-primary">
+                  </form>
+
+
+              </div>
+
         <table class="table_deg">
             <tr class="th_deg">
                 <th>Name</th>
@@ -66,10 +79,9 @@
                 <th>Payment status</th>
                 <th>Delivery Status</th>
                 <th>Image</th>
-                <th>Delivered</th>
             </tr>
 
-            @foreach($order as $order)
+            @forelse($order as $order)
             <tr>
                 <td>{{$order->firstname}}</td>
                 <td>{{$order->lastname}}</td>
@@ -87,23 +99,23 @@
                 <td>
                     <img class="img_size" src="/product/{{$order->image}}" alt="">
                 </td>
-                <td>
-
-                    @if($order->delivery_status=='processing')
-                    <a href="{{url('delivered', $order->id)}}" class="btn btn-primary">Delivered</a>
-                    @else
-                    <p style="color: green;">Delivered</p>
-                    @endif
-                </td>
             </tr>
-            @endforeach
+
+            @empty
+                <tr>
+                    <td colspan="16">
+                        No Data Found
+                    </td>
+                </tr>
+            @endforelse
         </table>
 
             </div>
-        </div>
+      </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
       @include('admin.script')
     <!-- End custom js for this page -->
+    </div>
   </body>
 </html>

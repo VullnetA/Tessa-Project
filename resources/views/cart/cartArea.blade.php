@@ -16,9 +16,9 @@
               
               <tbody>
 
-                @php
+                <?php
                 $totalprice=0;
-                @endphp
+                ?>
 
             @foreach($cart as $cart)
               
@@ -45,23 +45,21 @@
                   
                   <td class="product-quantity">
                     <div class="input-counter">
-                      <span class="minus-btn"><i class="bx bx-minus updateCartItem" data-cartid="{{$cart->id}}" data-qty="{{$cart->quantity}}"></i></span>
-                      <input type="text" min="1" value="{{$cart->quantity}}" />
-                      <span class="plus-btn"><i class="bx bx-plus updateCartItem" data-cartid="{{$cart->id}}" data-qty="{{$cart->quantity}}"></i></span>
+                    <input type="number" name="quantity" class="add-to-cart col-md-4" value="{{$cart->quantity}}" min="1" style="width: 50px">
                     </div>
                   </td>
                   
 
                   <td class="product-subtotal">
-                    <span class="subtotal-amount">{{$cart->unitprice * $cart->quantity}}</span>
+                    <span class="subtotal-amount">{{$cart->price}}</span>
 
                     <a href="{{url('remove_cart', $cart->id)}}" class="remove"><i class="bx bx-trash"></i></a>
                   </td>
                 </tr>
 
-                @php
-                $totalprice=$totalprice + ($cart->unitprice * $cart->quantity)
-                @endphp
+                <?php
+                $totalprice=$totalprice + $cart->price
+                ?>
             @endforeach
                 
               </tbody>

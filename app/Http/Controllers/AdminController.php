@@ -50,6 +50,7 @@ class AdminController extends Controller
         $product->category=$request->category;
         $product->quantity=$request->quantity;
         $product->price=$request->price;
+        $product->Stylistprice=$request->Stylistprice;
         $product->discount_price=$request->dis_price;
         $product->vendor=$request->vendor;
         $product->new=$request->new;
@@ -125,16 +126,7 @@ class AdminController extends Controller
         return view('admin.order', compact('order'));
     }
 
-    public function delivered($id)
-    {
-        $order=Order::find($id);
-        $order->delivery_status="delivered";
-        $order->payment_status = 'Paid';
-        $order->save();
-        return redirect()->back();
-    }
-
-    public function searchdata(Request $request)
+    public function  searchdata(Request $request)
     {
         $searchtext=$request->search;
 

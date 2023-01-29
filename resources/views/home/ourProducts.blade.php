@@ -1,17 +1,4 @@
 <!-- Start Products Area -->
-
-@if(session()->has('message'))
-
-            <div class="alert alert-success">
-
-              <button type="button" class="close" data_dismiss="alert" aria-hidden="true">x</button>
-              
-              {{session()->get('message')}}
-
-            </div>
-
-            @endif
-
         <section class="products-area pb-70">
             <div class="container">
                 <div class="section-title">
@@ -34,7 +21,7 @@
 
                                         <li>
                                             <div class="quick-view-btn">
-                                                <a href="{{url('product_details', $products->id)}}" data-bs-toggle="modal" data-bs-target="#productsQuickView">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#productsQuickView">
                                                     <i class='bx bx-search-alt'></i>
                                                     <span class="tooltip-label">Quick View</span>
                                                 </a>
@@ -59,6 +46,10 @@
                                     <span class="new-price">{{$products->discount_price}}den</span>
 
                                     @else
+
+                                        @if($usertype=='2')
+                                            <span class="new-price">{{$products->Stylistprice}}den</span>
+                                        @endif
 
                                         <span class="new-price">{{$products->price}}den</span>
 
@@ -87,6 +78,7 @@
                     </div>
                     @endforeach
                 </div>
+            </div>
             </div>
         </section>
 <!-- End Products Area -->

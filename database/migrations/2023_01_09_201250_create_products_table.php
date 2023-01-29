@@ -22,10 +22,11 @@ return new class extends Migration
             $table->string('category', 20)->nullable();
             $table->integer('quantity')->nullable();
             $table->integer('price')->nullable();
+            $table->integer('Stylistprice')->nullable();
             $table->integer('discount_price')->nullable();
             $table->string('vendor', 20)->nullable();
             $table->boolean('new')->nullable();
-            
+
             $table->timestamps();
         });
     }

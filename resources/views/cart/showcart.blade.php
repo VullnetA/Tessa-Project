@@ -3,7 +3,6 @@
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
-        <meta name="csrf-token" content="{{ csrf_token() }}" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Links of CSS files -->
@@ -37,9 +36,7 @@
     <!-- End Page Title -->
 
     <!-- Start Cart Area -->
-    <div id="appendCartItems">
-      @include('cart.cartArea')
-    </div>
+    @include('cart.cartArea')
     <!-- End Cart Area -->
 
     <!-- Start Facility Area -->

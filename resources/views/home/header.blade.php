@@ -56,7 +56,6 @@
                     </li>
 
                     <li>
-
                         <button class="button-dalje" role="button"><span href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                         Log out
                       </span></button>
@@ -64,13 +63,6 @@
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
                         </form>
-
-                    <button class="button-dalje" role="button">
-                      <span href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log out</span>
-                    </button>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}
-                    </form>
-
                     </li>
 
 
@@ -94,27 +86,14 @@
                       </div>
                     </div>
                     <div class="option-item">
-                    @if (Route::has('login'))
-                        @auth
-                        <div class="cart-btn">
-                          <a
-                            href="#"
-                            data-bs-toggle="modal"
-                            data-bs-target="#shoppingCartModal"
-                            ><i class="bx bx-shopping-bag"></i><span>{{$count}}</span></a
-                          >
-                        </div>
-                        @else
-                        <div class="cart-btn">
-                          <a
-                            href="#"
-                            data-bs-toggle="modal"
-                            data-bs-target="#shoppingCartModal"
-                            ><i class="bx bx-shopping-bag"></i><span>0</span>
-                          </a>
-                        </div>
-                        @endauth
-                    @endif
+                      <div class="cart-btn">
+                        <a
+                          href="#"
+                          data-bs-toggle="modal"
+                          data-bs-target="#shoppingCartModal"
+                          ><i class="bx bx-shopping-bag"></i><span>0</span></a
+                        >
+                      </div>
                     </div>
                   </ul>
                 </div>
@@ -177,8 +156,6 @@
                         </div>
                       </div>
                       <div class="option-item">
-                      @if (Route::has('login'))
-                        @auth
                         <div class="cart-btn">
                           <a
                             href="#"
@@ -187,17 +164,6 @@
                             ><i class="bx bx-shopping-bag"></i><span>0</span></a
                           >
                         </div>
-                        @else
-                        <div class="cart-btn">
-                          <a
-                            href="#"
-                            data-bs-toggle="modal"
-                            data-bs-target="#shoppingCartModal"
-                            ><i class="bx bx-shopping-bag"></i><span>0</span></a
-                          >
-                        </div>
-                        @endauth
-                        @endif
                       </div>
                       <div class="option-item">
                         <div
@@ -256,8 +222,6 @@
                         </div>
                       </div>
                       <div class="option-item">
-                        @if (Route::has('login'))
-                        @auth
                         <div class="cart-btn">
                           <a
                             href="#"
@@ -266,17 +230,6 @@
                             ><i class="bx bx-shopping-bag"></i><span>0</span></a
                           >
                         </div>
-                        @else
-                        <div class="cart-btn">
-                          <a
-                            href="#"
-                            data-bs-toggle="modal"
-                            data-bs-target="#shoppingCartModal"
-                            ><i class="bx bx-shopping-bag"></i><span>0</span></a
-                          >
-                        </div>
-                        @endauth
-                        @endif
                       </div>
                       <div class="option-item">
                         <div
@@ -390,12 +343,6 @@
                         <span aria-hidden="true"><i class='bx bx-x'></i></span>
                     </button>
 
-                    @if (Route::has('login'))
-                    @auth
-                    <?php
-                    $totalprice=0;
-                    ?>
-
                     <div class="modal-body">
                         <h3>My Cart (3)</h3>
 
@@ -452,14 +399,6 @@
                             </div>
                         </div>
 
-
-                        <?php
-                        $totalprice=$totalprice + $cart->price
-                        ?>
-                        @endforeach
-
-
-
                         <div class="products-cart-subtotal">
                             <span>Subtotal</span>
 
@@ -471,30 +410,6 @@
                             <a href="{{url('show_cart')}}" class="optional-btn">View Shopping Cart</a>
                         </div>
                     </div>
-
-                    @else
-                    <div class="modal-body">
-                        <h3>My Cart (0)</h3>
-                        <div class="products-cart-content">
-                            <div class="products-cart">
-
-                            </div>
-
-                        </div>
-
-                        <div class="products-cart-subtotal">
-                            <span>Subtotal</span>
-                            <span class="subtotal">0</span>
-                        </div>
-
-                        <div class="products-cart-btn">
-                            <a href="{{url('checkout')}}" class="default-btn">Proceed to Checkout</a>
-                            <a href="{{url('show_cart')}}" class="optional-btn">View Shopping Cart</a>
-                        </div>
-                    </div>
-                    @endauth
-                    @endif
-
                 </div>
             </div>
         </div>
