@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\View;
+
 use App\Models\User;
 
 use App\Models\Product;
@@ -14,40 +16,42 @@ use App\Models\Cart;
 
 use App\Models\Order;
 
+
 class HomeController extends Controller
 {
     public function index()
     {
         $product=Product::paginate(3);
-        return view('home.userpage',compact('product'));
+
+        if(Auth::id())
+        {
+            $id=Auth::user()->id;
+            $cart=Cart::where('user_id', '=', $id)->get();
+            $count=Cart::where('user_id', '=', $id)->count();
+            return view('home.userpage', compact('product', 'cart', 'count'));
+        }
+        else
+        {
+            return view('home.userpage', compact('product'));
+        }
+
     }
 
     public function redirect()
     {
         $usertype=Auth::user()->usertype;
 
-        $user=User::all();
-
-
-
         if($usertype=='1')
         {
             return view('admin.home');
         }
 
-        elseif ($usertype=='0')
-        {
-            $product=Product::paginate(3);
-            return view('home.userpage',compact('product'));
-        }
-        elseif ($usertype=='2')
-        {
-            $product=Product::paginate(3);
-            return view('home.userpage',compact('product'),['usertype'=>$usertype]);
-        }
         else{
             $product=Product::paginate(3);
-            return view('home.userpage',compact('product'));
+            $id=Auth::user()->id;
+            $cart=Cart::where('user_id', '=', $id)->get();
+            $count=Cart::where('user_id', '=', $id)->count();
+            return view('home.userpage',compact('product','cart','count'),['usertype'=>$usertype]);
         }
     }
 
@@ -55,52 +59,64 @@ class HomeController extends Controller
     {
         $product=product::find($id);
         return view('product.product', compact('product'));
-
-
     }
 
-    public function add_cart(Request $request,$id)
+    public function add_cart(Request $request)
     {
+        $product_id = $request->input('product_id');
+        $product_qty = $request->input('product_qty');
         if(Auth::id())
         {
             $user=Auth::user();
+            $user_id=Auth::user()->id;
 
-            $product=Product::find($id);
-
-            $cart=new Cart;
-
-            $cart->name=$user->name;
-
-            $cart->email=$user->email;
-
-            $cart->phone=$user->phone;
-
-            $cart->user_id=$user->id;
-
-            $cart->product_title=$product->title;
-
-            if($product->discount_price!=null)
+            $product=Product::find($product_id);
+            
+            // Check if stock is available
+            $getProductStock = Product::getProductStock ($product_id);
+            if($getProductStock<$product_qty)
             {
-                $cart->price=$product->discount_price * $request->quantity;
-                $cart->unitprice=$product->discount_price;
+                return redirect()->back()->with('message', 'Not enough');
             }
-            else
+            else 
             {
-                $cart->price=$product->price * $request->quantity;
-                $cart->unitprice=$product->price;
+                // Check Product if already exists in the User Cart
+                $cart_item = Cart::where('product_id', $product_id)->where('user_id', Auth::id())->first();
+
+                if($cart_item) {
+                    // Update the existing cart item quantity
+                    $cart_item->quantity += $product_qty;
+                    $cart_item->save();
+                }
+                else {
+                    // Save product in carts table
+                    $cart=new Cart;
+                    $cart->name=$user->name;
+                    $cart->email=$user->email;
+                    $cart->phone=$user->phone;
+                    $cart->user_id=$user->id;
+                    $cart->product_title=$product->title;
+                    if($product->discount_price!=null) {
+                        $cart->price=$product->discount_price * $request->quantity;
+                        $cart->unitprice=$product->discount_price;
+                    } else {
+                        $cart->price=$product->price * $request->quantity;
+                        $cart->unitprice=$product->price;
+                    }
+                    $cart->image=$product->image;
+                    $cart->product_id=$product->id;
+                    $cart->quantity=$product_qty;
+                    $cart->save();
+                }
+                $cart=Cart::where('user_id', '=', $user_id)->get();
+                $count=Cart::where('user_id', '=', $user_id)->count();
+                return response()->json([
+                    'status'=>true, 
+                    'view'=>(String)View::make('home.header')->with(compact('count','cart'))
+                ]);
+                    
+                    
             }
-
-
-            $cart->image=$product->image;
-
-            $cart->Product_id=$product->id;
-
-            $cart->quantity=$request->quantity;
-
-            $cart->save();
-
-            return redirect()->back();
-
         }
         else
         {
@@ -181,6 +197,36 @@ class HomeController extends Controller
         return redirect()->back()->with('message', 'We have received your order and will soon ship your product');
 
     }
+
+    public function cartUpdate(Request $request){
+        if($request->ajax()){
+            $id=Auth::user()->id;
+            $data = $request->all();
+
+            //Get Cart Details
+            $cartDetails = Cart::find($data['cartid']);
+            
+            $availableStock = Product::select('quantity')->where(['id'=>$cartDetails['Product_id']])->first()->toArray();
+            
+            if($data['qty']>$availableStock['quantity']){
+                $cart=Cart::where('user_id', '=', $id)->get();
+                return response()->json([
+                    'status'=>false,
+                    'message'=>'Product Stock is not available',
+                    'view'=>(String)View::make('cart.cartArea')->with(compact('cart'))
+                ]);
+            }
+
+            Cart::where('id', $data['cartid'])->update(['quantity'=>$data['qty']]);
+            $cart=Cart::where('user_id', '=', $id)->get();
+            return response()->json([
+            'status'=>true, 
+            'view'=>(String)View::make('cart.cartArea')->with(compact('cart'))
+            ]);
+        
+        }
+    }
+
 
     public function  searchProdUser(Request $request)
     {
