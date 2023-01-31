@@ -691,7 +691,7 @@ $(document).ready(function(){
                 alert("Error");
             }
           });
-    })
+    });
 
     $(document).on('click', '.updateCartItem', function(){
       if($(this).hasClass('bx-plus')){
@@ -732,6 +732,21 @@ $(document).ready(function(){
       });
     });
     
-
-
-  });
+    $(document).on('click', '.deleteCartitem', function(){
+        var cartid = $(this).data('cartid');
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data:{cartid:cartid},
+            url:'/cart/delete',
+            type:'post',
+            success:function(resp){
+                $("#appendCartItems").html(resp.view);
+            },error:function(){
+                alert("Error");
+            }
+        })
+        });
+    });
+  

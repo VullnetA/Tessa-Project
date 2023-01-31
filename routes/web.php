@@ -20,13 +20,9 @@ use Illuminate\Support\Facades\Mail;
 
 route::get('/',[HomeController::class,'index']);
 
-Route::get('/about', function () {
-    return view('about');
-});
+Route::get('/about', [HomeController::class,'about']);
 
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/contact', [HomeController::class,'contact']);
 
 Route::get('/shop', function () {
     return view('shop');
@@ -47,7 +43,6 @@ Route::middleware([
 });
 
 route::get('/redirect',[HomeController::class,'redirect'])->middleware('auth','verified');
-
 
 Route::get('/view_category',[AdminController::class, 'view_category']);
 
@@ -82,9 +77,9 @@ Route::post('/add_cart', [HomeController::class, 'add_cart']);
 
 Route::get('/show_cart',[HomeController::class, 'show_cart']);
 
-Route::get('/remove_cart/{id}', [HomeController::class, 'remove_cart']);
-
 Route::post('/cart/update', [HomeController::class, 'cartUpdate']);
+
+Route::post('/cart/delete', [HomeController::class, 'cartDelete']);
 
 Route::get('/checkout', [HomeController::class, 'checkout']);
 

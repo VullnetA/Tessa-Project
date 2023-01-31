@@ -55,7 +55,7 @@
                         <td class="product-subtotal">
                             <span class="subtotal-amount">{{$cart->unitprice * $cart->quantity}}</span>
 
-                            <a href="{{url('remove_cart', $cart->id)}}" class="remove"><i class="bx bx-trash"></i></a>
+                            <button class="remove"><i class="bx bx-trash deleteCartitem" data-cartid="{{ $cart->id }}"></i></button>
                         </td>
                     </tr>
 

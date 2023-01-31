@@ -55,6 +55,37 @@ class HomeController extends Controller
         }
     }
 
+    public function about()
+    {
+        if(Auth::id())
+        {
+            $id=Auth::user()->id;
+            $cart=Cart::where('user_id', '=', $id)->get();
+            $count=Cart::where('user_id', '=', $id)->count();
+            return view('about.aboutpage', compact('cart', 'count'));
+        }
+        else
+        {
+            return view('about.aboutpage');
+        }
+    }
+
+    public function contact()
+    {
+        $product=Product::paginate(3);
+        if(Auth::id())
+        {
+            $id=Auth::user()->id;
+            $cart=Cart::where('user_id', '=', $id)->get();
+            $count=Cart::where('user_id', '=', $id)->count();
+            return view('about.aboutpage', compact('product','cart', 'count'));
+        }
+        else
+        {
+            return view('about.aboutpage', compact('product'));
+        }
+    }
+
     public function product_details($id)
     {
         $product=product::find($id);
@@ -140,15 +171,6 @@ class HomeController extends Controller
         }
     }
 
-    public function remove_cart($id)
-    {
-        $cart=Cart::find($id);
-
-        $cart->delete();
-
-        return redirect()->back();
-    }
-
     public function checkout()
     {
         $user=Auth::user();
@@ -224,6 +246,18 @@ class HomeController extends Controller
             'view'=>(String)View::make('cart.cartArea')->with(compact('cart'))
             ]);
         
+        }
+    }
+
+    public function cartDelete(Request $request){
+        if($request->ajax()){
+            $id=Auth::user()->id;
+            $data = $request->all();
+            Cart::where('id',$data['cartid'])->delete();
+            $cart=Cart::where('user_id', '=', $id)->get();
+            return response()->json([
+            'view'=>(String)View::make('cart.cartArea')->with(compact('cart'))
+            ]);
         }
     }
 

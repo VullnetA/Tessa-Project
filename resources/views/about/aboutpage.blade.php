@@ -30,49 +30,37 @@
     <body>
         <!-- Start Header Area-->
         <div id="appendCartNumber">
-        @include('home.header')
+        @include('about.header')
         </div>
         <!-- End Header Area-->
 
-        <!-- Start Main Banner Area/ slider -->
-        @include('home.slider')
-        <!-- End Main Banner Area/ slider -->
+        <!-- Start Page Title Area-->
+        @include('about.pageTitle')
+        <!-- End Page Title Area-->
 
-        <!-- Start Categories Banner Area -->
-        @include('home.categoriesBanner')
-        <!-- End Categories Banner Area -->
+        <!-- Start About Area-->
+        @include('about.aboutarea')
+        <!-- End About Area-->
 
-        <!-- Start Products Area -->
-       @include('home.ourProducts')
-        <!-- End Products Area -->
+        <!-- Start Offer Area-->
+        @include('about.offer')
+        <!-- End Offer Area-->
 
-        <!-- Start Offer Area -->
-        @include('home.offerArea')
-        <!-- End Offer Area -->
+        <!-- Start Partner Area-->
+        @include('about.partner')
+        <!-- End Partner Area-->
 
-        <!-- Start Brand Area -->
-        @include('home.shopBrand')
-        <!-- End Brand Area -->
-
-        <!-- Start Products Area -->
-        @include('home.popularProducts')
-        <!-- End Products Area -->
+        <!-- Start Testimonials Area-->
+        @include('about.testimonials')
+        <!-- End Testimonials Area-->
 
         <!-- Start Facility Area -->
         @include('home.facilityArea')
         <!-- End Facility Area -->
 
-        <!-- Start Products Area -->
-        @include('home.productArea')
-        <!-- End Products Area -->
-
         <!-- Start Instagram Area -->
         @include('home.instagram')
         <!-- End Instagram Area -->
-
-        <!-- Start QuickView Modal Area -->
-        @include('home.quickview')
-        <!-- End QuickView Modal Area -->
 
         <!-- Start Footer Area -->
         @include('home.footer')
