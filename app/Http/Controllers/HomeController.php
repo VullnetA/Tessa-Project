@@ -72,17 +72,16 @@ class HomeController extends Controller
 
     public function contact()
     {
-        $product=Product::paginate(3);
         if(Auth::id())
         {
             $id=Auth::user()->id;
             $cart=Cart::where('user_id', '=', $id)->get();
             $count=Cart::where('user_id', '=', $id)->count();
-            return view('about.aboutpage', compact('product','cart', 'count'));
+            return view('contact.contactpage', compact('cart', 'count'));
         }
         else
         {
-            return view('about.aboutpage', compact('product'));
+            return view('contact.contactpage');
         }
     }
 
