@@ -101,3 +101,13 @@ Route::post('/sendemail/send', [SendEmailController::class, 'send']);
 Route::get('/search', [AdminController::class, 'searchdata']);
 
 
+Route::get('/view_users',[AdminController::class, 'view_users']);
+Route::get('/update_user/{id}',[AdminController::class, 'update_user']);
+Route::post('/update_user_confirm/{id}',[AdminController::class, 'update_user_confirm']);
+Route::get('/delete_user/{id}',[AdminController::class, 'delete_user']);
+Route::get('/approve_account/{id}',[AdminController::class, 'approve_account']);
+
+Route::get('/send_email/{id}',[AdminController::class, 'send_email']);
+route::post('/send_user_email/{id}',[AdminController::class, 'send_user_email']);
+
+

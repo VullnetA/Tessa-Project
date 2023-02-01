@@ -7,6 +7,9 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\Brand;
+use App\Models\User;
+use App\Notifications\SendEmailNotification;
+use Illuminate\Support\Facades\Notification;
 
 class AdminController extends Controller
 {
@@ -183,5 +186,73 @@ class AdminController extends Controller
         return view('admin.show_product',compact('product'));
     }
 
+    public function view_users()
+    {
+        $User=User::all();
+        return view('admin.view_users', compact('User'));
+    }
+
+    public function update_user_confirm(Request $request, $id)
+    {
+        $User=User::find($id);
+
+        $User->id=$request->id;
+        $User->name=$request->name;
+        $User->email=$request->email;
+        $User->usertype=$request->usertype;
+        $User->phone=$request->phone;
+        $User->address=$request->address;
+
+        $User->save();
+
+        return redirect()->back()->with('message','User Updated Successfully');
+    }
+    public function update_user($id)
+    {
+        $User=User::find($id);
+
+
+        return view('admin.update_user',compact('User'));
+    }
+    public function delete_user($id)
+    {
+        $User=User::find($id);
+        $User->delete();
+        return redirect()->back()->with('message','User Deleted Successfully');
+    }
+
+    public function approve_account($id)
+{
+    $user = User::find($id);
+    $user->usertype = 3;
+    $user->save();
+    return redirect()->back()->with('success', 'User type updated successfully');
+}
+
+public function send_email($id){
+
+    $user=User::find($id);
+
+    return view('admin.email_info', compact('user'));
+}
+    public function send_user_email(Request $request, $id){
+
+        $user=User::find($id);
+
+        $details = [
+            'greeting' => $request->greeting,
+            'firstline' => $request->firstline,
+            'body' => $request->body,
+            'button' => $request->button,
+            'url' => $request->url,
+            'lastline' => $request->lastline,
+        ];
+
+        Notification::send($user,new SendEmailNotification($details));
+        return redirect()->back()->with('message', 'Email Sent Succesfully');
+
+    }
 
 }
+
+

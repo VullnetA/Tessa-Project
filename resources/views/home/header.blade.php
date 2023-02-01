@@ -52,7 +52,9 @@
 
                   @auth
                     <li>
-                      <a href="login.html"><i class="bx bxs-user"></i> My Account</a>
+                      <a href="{{ route('profile.show') }}" onclick="event.preventDefault(); document.getElementById('account-form').submit();"><i class="bx bxs-user"></i>My Account</a>
+                      <form id="account-form" action="{{ route('profile.show') }}" method="GET" style="display: none;">{{ csrf_field() }}                     
+                      </form>
                     </li>
 
                     <li>

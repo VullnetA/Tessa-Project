@@ -1,5 +1,5 @@
 <!-- Start Brand Area -->
-        <div class="brand-area ptb-70">
+        <div id="brand" class="brand-area ptb-70">
             <div class="container">
                 <div class="section-title">
                     <h2>Shop By Brand</h2>

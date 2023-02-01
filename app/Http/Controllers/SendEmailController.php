@@ -59,8 +59,6 @@ class SendEmailController extends Controller
         return redirect()->back()->with('message','Form Sent Successfully');
 
     }
-
-
 }
 
 ?>

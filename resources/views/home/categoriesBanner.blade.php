@@ -48,7 +48,7 @@
                                         <h3>Popular Brands!</h3>
                                     </div>
 
-                                    <a href="products-sidebar-fullwidth.html" class="link-btn"></a>
+                                    <input type="button" style="background: transparent; border: none !important; font-size:0;" class="link-btn" onClick="document.getElementById('brand').scrollIntoView();" />
                                 </div>
                             </div>
                         </div>
