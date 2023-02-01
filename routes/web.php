@@ -18,15 +18,13 @@ use Illuminate\Support\Facades\Mail;
 |
 */
 
-route::get('/',[HomeController::class,'index']);
+route::get('/', [HomeController::class,'index']);
 
 Route::get('/about', [HomeController::class,'about']);
 
 Route::get('/contact', [HomeController::class,'contact']);
 
-Route::get('/shop', function () {
-    return view('shop');
-});
+Route::get('/shop', [HomeController::class,'shop']);
 
 Route::get('/courses', function () {
     return view('courses');
@@ -91,6 +89,10 @@ Route::post('/cart/delete', [HomeController::class, 'cartDelete']);
 Route::get('/checkout', [HomeController::class, 'checkout']);
 
 Route::post('/cash_order',[HomeController::class, 'cash_order']);
+
+Route::get('/contact-us', [SendEmailController::class, 'contact']);
+
+Route::post('/send-message', [SendEmailController::class, 'sendEmail']);
 
 Route::get('/sendemail', [SendEmailController::class, 'index']);
 

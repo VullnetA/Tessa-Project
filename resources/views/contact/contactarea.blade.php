@@ -1,4 +1,15 @@
 <!-- Start Contact Area -->
+        @if(session()->has('message'))
+
+            <div class="alert alert-success">
+              <center>
+              {{session()->get('message')}}
+              </center>
+            </div>
+
+         @endif
+
+
 <section class="contact-area ptb-100">
       <div class="container">
         <div class="row">
@@ -78,7 +89,8 @@
                 questions you may have.
               </p>
 
-              <form id="contactForm">
+              <form method="POST" action="{{url('/send-message')}}">
+                @csrf
                 <div class="row">
                   <div class="col-lg-12 col-md-6">
                     <div class="form-group">

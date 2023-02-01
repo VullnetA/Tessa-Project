@@ -101,6 +101,22 @@ class HomeController extends Controller
         }
     }
 
+    public function shop()
+    {
+        $product=Product::all();
+        if(Auth::id())
+        {
+            $id=Auth::user()->id;
+            $cart=Cart::where('user_id', '=', $id)->get();
+            $count=Cart::where('user_id', '=', $id)->count();
+            return view('shop.shop', compact('cart', 'count', 'product'));
+        }
+        else
+        {
+            return view('shop.shop', compact('product'));
+        }
+    }
+
     public function product_details($id)
     {
         $product=product::find($id);
