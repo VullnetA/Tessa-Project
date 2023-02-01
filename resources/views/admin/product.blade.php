@@ -96,7 +96,12 @@
                 </div>
                 <div class="div_design">
                 <label>Product Vendor:</label>
-                <input class="text_color" type="text" name="vendor" placeholder="Write a vendor" required="">
+                <select class="text_color" name="brand" required="">
+                  <option value="" selected="">Select brand</option>
+                  @foreach($brand as $brand)
+                  <option value="{{$brand->brand_name}}">{{$brand->brand_name}}</option>
+                  @endforeach
+                </select>
                 </div>
                 <div class="div_design">
                 <label>New:</label>

@@ -70,6 +70,13 @@ Route::get('/searchuser', [HomeController::class, 'searchProdUser']);
 
 Route::get('/delivered/{id}',[AdminController::class, 'delivered']);
 
+Route::get('/view_brand',[AdminController::class, 'view_brand']);
+
+Route::post('/add_brand',[AdminController::class, 'add_brand']);
+
+Route::get('/delete_brand/{id}',[AdminController::class, 'delete_brand']);
+
+
 
 Route::get('/product_details/{id}',[HomeController::class, 'product_details']);
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Order;
+use App\Models\Brand;
 
 class AdminController extends Controller
 {
@@ -36,10 +37,37 @@ class AdminController extends Controller
         return redirect()->back()->with('message','Category Deleted Successfully');
     }
 
+    public function view_brand()
+    {
+        $data=Brand::all();
+        return view('admin.brand', compact('data'));
+    }
+
+    public function add_brand(Request $request)
+    {
+        $data=new brand;
+
+        $data->brand_name=$request->brand;
+
+        $data->save();
+
+        return redirect()->back()->with('message', 'Brand Added Successfully');
+    }
+
+    public function delete_brand($id)
+    {
+        $data=Brand::find($id);
+
+        $data->delete();
+
+        return redirect()->back()->with('message','Brand Deleted Successfully');
+    }
+
     public function view_product()
     {
         $category=Category::all();
-        return view('admin.product',compact('category'));
+        $brand=Brand::all();
+        return view('admin.product',compact('category', 'brand'));
     }
 
     public function add_product(Request $request)

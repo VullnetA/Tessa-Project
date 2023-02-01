@@ -93,6 +93,15 @@
           </li>
 
           <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('view_brand')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">Brand</span>
+            </a>
+          </li>
+
+          <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('order')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-playlist-play"></i>
