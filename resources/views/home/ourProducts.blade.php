@@ -1,5 +1,39 @@
 <!-- Start Products Area -->
+<style>
 
+    .input-counter{
+       padding-left: 20px;
+    }
+    .qty-input{
+    
+        max-width: 60px;
+    }
+    
+    .input-counter {
+        display: flex;
+        align-items: center;
+      }
+      .btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: #ddd;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      .qty-input {
+        width: 40px;
+        height: 32px;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin: 0 10px;
+      }
+    
+    </style>
+    
 @if(session()->has('message'))
 
             <div class="alert alert-success">
@@ -75,19 +109,17 @@
                                 </div>
 
 
-                                    <div class="row">
-                                        <input type="hidden" value="{{$products->id}}" class="prod_id">
-                                        <div>
-                                            <a type="submit" class="col-md-5 addToCartBtn" style="padding-left: 60px">Add Cart</a>
-                                        </div>
-                                        <div>
-                                            <div class="input-counter">
-                                                <span class="minus-btn"><i class="bx bx-minus"></i></span>
-                                                <input type="text" class="qty-input" value="1" />
-                                                <span class="plus-btn"><i class="bx bx-plus"></i></span>
-                                            </div>
-                                        </div>
+                                <div class="row">
+                                    <input type="hidden" value="{{$products->id}}" class="prod_id">
+                                    <div class="d-flex align-items-center" style="padding-top: 15px;">
+                                      <button type="submit" class="col-md-6 addToCartBtn mr-3">Add Cart</button>
+                                      <div class="input-counter">
+                                        <span class="minus-btn"><i class="bx bx-minus"></i></span>
+                                        <input type="text" class="qty-input" value="1" />
+                                        <span class="plus-btn"><i class="bx bx-plus"></i></span>
+                                      </div>
                                     </div>
+                                  </div>
 
                             </div>
 

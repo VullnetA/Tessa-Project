@@ -16,6 +16,10 @@ use App\Models\Cart;
 
 use App\Models\Order;
 
+use App\Models\Brand;
+
+use App\Models\Category;
+
 
 class HomeController extends Controller
 {
@@ -103,17 +107,19 @@ class HomeController extends Controller
 
     public function shop()
     {
+        $brand=Brand::all();
         $product=Product::paginate(6);
+        $category=Category::all();
         if(Auth::id())
         {
             $id=Auth::user()->id;
             $cart=Cart::where('user_id', '=', $id)->get();
             $count=Cart::where('user_id', '=', $id)->count();
-            return view('shop.shop', compact('cart', 'count', 'product'));
+            return view('shop.shop', compact('cart', 'count', 'product','brand','category'));
         }
         else
         {
-            return view('shop.shop', compact('product'));
+            return view('shop.shop', compact('product','brand','category'));
         }
     }
 

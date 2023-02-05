@@ -34,7 +34,10 @@
         .div_design
         {
             padding-bottom: 15px;
+            text-align: left;
+            padding-left: 31%;
         }
+  
     </style>
   </head>
   <body>
@@ -45,22 +48,8 @@
       @include('admin.header')
       <!-- partial -->
       <div class="main-panel">
-          <div class="content-wrapper">
-
-
-            @if(session()->has('message'))
-
-            <div class="alert alert-success">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                {{session()->get('message')}}
-
-            </div>
-            @endif
-
-
-
-                </div>
-            <div class="div_center">
+    
+            <div class="div_center" style="border-top:3px solid; border-top-color:white; text-align:center;">
                 <h1 class="font_size">Add Product</h1>
 
 
@@ -96,12 +85,7 @@
                 </div>
                 <div class="div_design">
                 <label>Product Vendor:</label>
-                <select class="text_color" name="brand" required="">
-                  <option value="" selected="">Select brand</option>
-                  @foreach($brand as $brand)
-                  <option value="{{$brand->brand_name}}">{{$brand->brand_name}}</option>
-                  @endforeach
-                </select>
+                <input class="text_color" type="text" name="vendor" placeholder="Write a vendor" required="">
                 </div>
                 <div class="div_design">
                 <label>New:</label>
@@ -117,7 +101,7 @@
                 </select>
                 </div>
 
-                <div class="div_design">
+                <div class="div_design" style="text-align:left;">
                 <input type="submit" value="Add Product" class="btn btn-primary">
                 </div>
 

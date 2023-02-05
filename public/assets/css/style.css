@@ -3005,10 +3005,10 @@ Products CSS
   background: red;
 }
 
-.products-box:hover .products-content .price {
+/* .products-box:hover .products-content .price {
   opacity: 0;
   visibility: hidden;
-}
+} */
 
 .products-box:hover .products-content .add-to-cart {
   -webkit-transform: translateX(0);
@@ -10600,4 +10600,44 @@ Go Top CSS
 .addToCartBtn:hover {
     box-shadow: rgba(205, 88, 136, .2) 0 -25px 18px -14px inset,rgba(205, 88, 136, .15) 0 1px 2px,rgba(205, 88, 136, .15) 0 2px 4px,rgba(205, 88, 136, .15) 0 4px 8px,rgba(205, 88, 136, .15) 0 8px 16px,rgba(205, 88, 136, .15) 0 16px 32px;
     transform: scale(1.05) rotate(-1deg);
+}
+
+.addToCartBtn {
+  background-color: #fbdeeb;
+  border-radius: 100px;
+  box-shadow: rgba(205, 88, 136, .2) 0 -25px 18px -14px inset,rgba(205, 88, 136, .15) 0 1px 2px,rgba(205, 88, 136, .15) 0 2px 4px,rgba(205, 88, 136, .15) 0 4px 8px,rgba(205, 88, 136, .15) 0 8px 16px,rgba(205, 88, 136, .15) 0 16px 32px;
+  color: #400E32;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.addToCartBtn:hover {
+  box-shadow: rgba(205, 88, 136, .2) 0 -25px 18px -14px inset,rgba(205, 88, 136, .15) 0 1px 2px,rgba(205, 88, 136, .15) 0 2px 4px,rgba(205, 88, 136, .15) 0 4px 8px,rgba(205, 88, 136, .15) 0 8px 16px,rgba(205, 88, 136, .15) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+.input-counter{
+
+  padding-top: 10px;;
+}
+
+
+.main-image{
+  max-width:400 px;
+  height:400px;
+}
+
+.hover-image{
+  max-width:400 px;
+  height:400px;
 }

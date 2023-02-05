@@ -1,3 +1,38 @@
+<style>
+
+    .input-counter{
+       padding-left: 20px;
+    }
+    .qty-input{
+    
+        max-width: 60px;
+    }
+    
+    .input-counter {
+        display: flex;
+        align-items: center;
+      }
+      .btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background-color: #ddd;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+      .qty-input {
+        width: 40px;
+        height: 32px;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin: 0 10px;
+      }
+    
+    </style>
+
 <!-- Start Products Area -->
 <section class="products-area products-collections-area pt-100 pb-70">
       <div class="container-fluid">
@@ -5,16 +40,13 @@
           <div class="col-lg-4 col-md-12">
             <div class="woocommerce-widget-area">
               <div class="woocommerce-widget collections-list-widget">
-                <h3 class="woocommerce-widget-title">Collections</h3>
+                <h3 class="woocommerce-widget-title">Categories</h3>
 
+                @foreach($category as $category)
                 <ul class="collections-list-row">
-                  <li><a href="#">Men's</a></li>
-                  <li class="active"><a href="#" class="active">Women’s</a></li>
-                  <li><a href="#">Clothing</a></li>
-                  <li><a href="#">Shoes</a></li>
-                  <li><a href="#">Accessories</a></li>
-                  <li><a href="#">Uncategorized</a></li>
+                  <li><a href="#">{{$category->category_name}}</a></li>
                 </ul>
+                @endforeach
               </div>
 
               <div class="woocommerce-widget price-list-widget">
@@ -89,12 +121,9 @@
                 <h3 class="woocommerce-widget-title">Brands</h3>
 
                 <ul class="brands-list-row">
-                  <li><a href="#">Gucci</a></li>
-                  <li><a href="#">Virgil Abloh</a></li>
-                  <li><a href="#">Balenciaga</a></li>
-                  <li class="active"><a href="#">Moncler</a></li>
-                  <li><a href="#">Fendi</a></li>
-                  <li><a href="#">Versace</a></li>
+                  @foreach($brand as $brand)
+                  <li><a href="#">{{$brand->brand_name}}</a></li>
+                  @endforeach
                 </ul>
               </div>
 
@@ -232,18 +261,16 @@
 
 
                         <div class="row">
-                            <input type="hidden" value="{{$products->id}}" class="prod_id">
-                            <div>
-                                <a type="submit" class="col-md-5 addToCartBtn" style="padding-left: 60px">Add Cart</a>
-                            </div>
-                            <div>
-                                <div class="input-counter">
-                                    <span class="minus-btn"><i class="bx bx-minus"></i></span>
-                                    <input type="text" class="qty-input" value="1" />
-                                    <span class="plus-btn"><i class="bx bx-plus"></i></span>
-                                </div>
-                            </div>
-                        </div>
+                                    <input type="hidden" value="{{$products->id}}" class="prod_id">
+                                    <div class="d-flex align-items-center" style="padding-top: 15px;">
+                                      <button type="submit" class="col-md-6 addToCartBtn mr-3">Add Cart</button>
+                                      <div class="input-counter">
+                                        <span class="minus-btn"><i class="bx bx-minus"></i></span>
+                                        <input type="text" class="qty-input" value="1" />
+                                        <span class="plus-btn"><i class="bx bx-plus"></i></span>
+                                      </div>
+                                    </div>
+                                  </div>
 
                     </div>
                 </div>
