@@ -10,4 +10,9 @@
         </div>
       </div>
     </div>
+    <div>
+      <div>
+        <h2>Colors</h2>
+      </div>
+    </div>
 <!-- End Page Title -->

@@ -5,7 +5,7 @@
             <div class="alert alert-success">
 
               <button type="button" class="close" data_dismiss="alert" aria-hidden="true">x</button>
-              
+
               {{session()->get('message')}}
 
             </div>
@@ -33,7 +33,7 @@
 
                                 <div class="products-button">
                                     <ul>
-                                     
+
                                         <li>
                                             <div class="quick-view-btn">
                                                 <a href="{{url('product_details', $products->id)}}" data-bs-toggle="modal" data-bs-target="#productsQuickView">
@@ -73,8 +73,8 @@
                                     @endif
 
                                 </div>
-                                
-                                    
+
+
                                     <div class="row">
                                         <input type="hidden" value="{{$products->id}}" class="prod_id">
                                         <div>
@@ -88,7 +88,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                
+
                             </div>
 
                             <span class="products-discount">

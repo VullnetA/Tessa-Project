@@ -103,7 +103,7 @@ class HomeController extends Controller
 
     public function shop()
     {
-        $product=Product::all();
+        $product=Product::paginate(6);
         if(Auth::id())
         {
             $id=Auth::user()->id;
@@ -133,14 +133,14 @@ class HomeController extends Controller
             $user_id=Auth::user()->id;
 
             $product=Product::find($product_id);
-            
+
             // Check if stock is available
             $getProductStock = Product::getProductStock ($product_id);
             if($getProductStock<$product_qty)
             {
                 return redirect()->back()->with('message', 'Not enough');
             }
-            else 
+            else
             {
                 // Check Product if already exists in the User Cart
                 $cart_item = Cart::where('product_id', $product_id)->where('user_id', Auth::id())->first();
@@ -173,11 +173,11 @@ class HomeController extends Controller
                 $cart=Cart::where('user_id', '=', $user_id)->get();
                 $count=Cart::where('user_id', '=', $user_id)->count();
                 return response()->json([
-                    'status'=>true, 
+                    'status'=>true,
                     'view'=>(String)View::make('home.header')->with(compact('count','cart'))
                 ]);
-                    
-                    
+
+
             }
         }
         else
@@ -258,9 +258,9 @@ class HomeController extends Controller
 
             //Get Cart Details
             $cartDetails = Cart::find($data['cartid']);
-            
+
             $availableStock = Product::select('quantity')->where(['id'=>$cartDetails['Product_id']])->first()->toArray();
-            
+
             if($data['qty']>$availableStock['quantity']){
                 $cart=Cart::where('user_id', '=', $id)->get();
                 return response()->json([
@@ -273,10 +273,10 @@ class HomeController extends Controller
             Cart::where('id', $data['cartid'])->update(['quantity'=>$data['qty']]);
             $cart=Cart::where('user_id', '=', $id)->get();
             return response()->json([
-            'status'=>true, 
+            'status'=>true,
             'view'=>(String)View::make('cart.cartArea')->with(compact('cart'))
             ]);
-        
+
         }
     }
 
@@ -302,5 +302,5 @@ class HomeController extends Controller
 
         return view('home.userpage',compact('product'));
     }
-
+    
 }
