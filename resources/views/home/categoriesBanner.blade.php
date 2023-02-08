@@ -40,15 +40,27 @@
                                 </div>
                             </div>
 
-                            <div class="col-lg-12 col-md-12">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="categories-box">
-                                    <img src="assets/img/partner/fanola-cover.jpg" alt="image">
+                                    <img src="assets/img/partner/rr-linee-noline.jpg" alt="image">
         
                                     <div class="content">
-                                        <h3>Popular Brands!</h3>
+                                        <h3>Hot Trending Products</h3>
                                     </div>
 
-                                    <input type="button" style="background: transparent; border: none !important; font-size:0;" class="link-btn" onClick="document.getElementById('brand').scrollIntoView();" />
+                                    <a href="products-sidebar-fullwidth.html" class="link-btn"></a>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="categories-box">
+                                    <img src="assets/img/partner/rr-linee-noline.jpg" alt="image">
+        
+                                    <div class="content">
+                                        <h3>Hot Trending Products</h3>
+                                    </div>
+
+                                    <a href="products-sidebar-fullwidth.html" class="link-btn"></a>
                                 </div>
                             </div>
                         </div>

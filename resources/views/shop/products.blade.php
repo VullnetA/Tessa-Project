@@ -33,6 +33,23 @@
     
     </style>
 
+
+<section class="haircolor">
+  <div class="hairtext">
+    <h2>Choose your Hair Color:</h2>
+  </div>
+  <div class="haircolorimg">
+    <img class="colorImage" src="{{ asset('assets/img/noyellow.webp') }}">
+    <p>Fanola</p>
+    <img class="colorImage" src="{{ asset('assets/img/haircolor.jpg') }}">
+    <p>Fanola</p>
+    <img class="colorImage" src="{{ asset('assets/img/haircolor.jpg') }}">
+    <p>Fanola</p>
+    <img class="colorImage" src="{{ asset('assets/img/haircolor.jpg') }}">
+    <p>Fanola</p>
+  </div>
+</section>
+
 <!-- Start Products Area -->
 <section class="products-area products-collections-area pt-100 pb-70">
       <div class="container-fluid">
@@ -42,11 +59,14 @@
               <div class="woocommerce-widget collections-list-widget">
                 <h3 class="woocommerce-widget-title">Categories</h3>
 
-                @foreach($category as $category)
-                <ul class="collections-list-row">
-                  <li><a href="#">{{$category->category_name}}</a></li>
-                </ul>
-                @endforeach
+                  <ul class="collections-list-row">
+                  @foreach($category as $category)
+                    <li>
+                      <a href="{{ url('/category/'.$category->category_name) }}">{{$category->category_name}}</a>
+                    </li>
+                  @endforeach
+                  </ul>
+                
               </div>
 
               <div class="woocommerce-widget price-list-widget">
@@ -209,15 +229,15 @@
 
             <div id="products-collections-filter" class="row">
 
-              @foreach ($product as $products)
+              @foreach ($products as $product)
 
 
               <div class="col-lg-4 col-md-6 col-sm-6 products-col-item">
                 <div class="single-products-box">
                   <div class="products-image">
-                      <a href="{{url('product_details', $products->id)}}">
-                        <img src="product/{{$products->image}}" class="main-image" alt="image">
-                        <img src="product/{{$products->image}}" class="hover-image" alt="image">
+                      <a href="{{url('product_details', $product->id)}}">
+                        <img src="product/{{$product->image}}" class="main-image" alt="image">
+                        <img src="product/{{$product->image}}" class="hover-image" alt="image">
                     </a>
 
                       <div class="products-button">
@@ -225,7 +245,7 @@
 
                               <li>
                                   <div class="quick-view-btn">
-                                      <a href="{{url('product_details', $products->id)}}" data-bs-toggle="modal" data-bs-target="#productsQuickView">
+                                      <a href="{{url('product_details', $product->id)}}" data-bs-toggle="modal" data-bs-target="#productsQuickView">
                                           <i class='bx bx-search-alt'></i>
                                           <span class="tooltip-label">Quick View</span>
                                       </a>
@@ -236,21 +256,21 @@
                   </div>
 
                     <div class="products-content">
-                        <span class="category">{{$products->category}}</span>
-                        <h3><a href="products-type-2.html">{{$products->title}}</a></h3>
+                        <span class="category">{{$product->category}}</span>
+                        <h3><a href="products-type-2.html">{{$product->title}}</a></h3>
                         <div class="price">
 
-                            @if($products->discount_price!=null)
+                            @if($product->discount_price!=null)
 
-                                <span class="old-price">{{$products->price}}den</span>
-                                <span class="new-price">{{$products->discount_price}}den</span>
+                                <span class="old-price">{{$product->price}}den</span>
+                                <span class="new-price">{{$product->discount_price}}den</span>
 
                             @else
 
-                                @if(Auth::check() && isset($products->Stylistprice) && Auth::user()->usertype=='2')
-                                    <span class="new-price">{{$products->Stylistprice}}den</span>
+                                @if(Auth::check() && isset($product->Stylistprice) && Auth::user()->usertype=='2')
+                                    <span class="new-price">{{$product->Stylistprice}}den</span>
                                 @else
-                                    <span class="new-price">{{$products->price}}den</span>
+                                    <span class="new-price">{{$product->price}}den</span>
                                 @endif
 
 
@@ -261,7 +281,7 @@
 
 
                         <div class="row">
-                                    <input type="hidden" value="{{$products->id}}" class="prod_id">
+                                    <input type="hidden" value="{{$product->id}}" class="prod_id">
                                     <div class="d-flex align-items-center" style="padding-top: 15px;">
                                       <button type="submit" class="col-md-6 addToCartBtn mr-3">Add Cart</button>
                                       <div class="input-counter">
@@ -277,7 +297,7 @@
               </div>
               @endforeach
               <span class="text-center">
-                {{ $product->links('partials.my-paginate') }}
+                {{ $products->links('partials.my-paginate') }}
               </span>
           
         </div>

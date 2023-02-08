@@ -84,6 +84,24 @@
           </li>
 
           <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('/view_course')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">Add Courses</span>
+            </a>
+          </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('/show_course')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-playlist-play"></i>
+              </span>
+              <span class="menu-title">Show Courses</span>
+            </a>
+          </li>
+
+          <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('view_category')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-playlist-play"></i>

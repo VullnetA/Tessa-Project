@@ -26,9 +26,7 @@ Route::get('/contact', [HomeController::class,'contact']);
 
 Route::get('/shop', [HomeController::class,'shop']);
 
-Route::get('/courses', function () {
-    return view('courses');
-});
+Route::get('/courses', [HomeController::class,'courses']);
 
 Route::middleware([
     'auth:sanctum',
@@ -60,6 +58,20 @@ Route::get('/update_product/{id}',[AdminController::class, 'update_product']);
 
 Route::post('/update_product_confirm/{id}',[AdminController::class, 'update_product_confirm']);
 
+Route::get('/view_course',[AdminController::class, 'view_course']);
+
+Route::post('/add_course',[AdminController::class, 'add_course']);
+
+Route::get('/show_course',[AdminController::class, 'show_course']);
+
+Route::get('/view_images/{id}',[AdminController::class, 'view_images'])->name('course.images');
+
+Route::get('/delete_course/{id}',[AdminController::class, 'delete_course']);
+
+Route::get('/update_course/{id}',[AdminController::class, 'update_course']);
+
+Route::post('/update_course_confirm/{id}',[AdminController::class, 'update_course_confirm']);
+
 Route::get('/order',[AdminController::class, 'order']);
 
 Route::get('/searchprod', [AdminController::class, 'searchProd']);
@@ -77,6 +89,10 @@ Route::get('/delete_brand/{id}',[AdminController::class, 'delete_brand']);
 
 
 Route::get('/product_details/{id}',[HomeController::class, 'product_details']);
+
+Route::get('/course_details/{id}',[HomeController::class, 'course_details']);
+
+Route::get('/category/{category}',[HomeController::class, 'category']);
 
 Route::post('/add_cart', [HomeController::class, 'add_cart']);
 
@@ -100,14 +116,18 @@ Route::post('/sendemail/send', [SendEmailController::class, 'send']);
 
 Route::get('/search', [AdminController::class, 'searchdata']);
 
-
 Route::get('/view_users',[AdminController::class, 'view_users']);
+
 Route::get('/update_user/{id}',[AdminController::class, 'update_user']);
+
 Route::post('/update_user_confirm/{id}',[AdminController::class, 'update_user_confirm']);
+
 Route::get('/delete_user/{id}',[AdminController::class, 'delete_user']);
+
 Route::get('/approve_account/{id}',[AdminController::class, 'approve_account']);
 
 Route::get('/send_email/{id}',[AdminController::class, 'send_email']);
+
 route::post('/send_user_email/{id}',[AdminController::class, 'send_user_email']);
 
 

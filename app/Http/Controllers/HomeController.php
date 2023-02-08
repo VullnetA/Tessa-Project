@@ -20,6 +20,7 @@ use App\Models\Brand;
 
 use App\Models\Category;
 
+use App\Models\Course;
 
 class HomeController extends Controller
 {
@@ -108,18 +109,56 @@ class HomeController extends Controller
     public function shop()
     {
         $brand=Brand::all();
-        $product=Product::paginate(6);
+        $products=Product::paginate(6);
         $category=Category::all();
         if(Auth::id())
         {
             $id=Auth::user()->id;
             $cart=Cart::where('user_id', '=', $id)->get();
             $count=Cart::where('user_id', '=', $id)->count();
-            return view('shop.shop', compact('cart', 'count', 'product','brand','category'));
+            return view('shop.shop', compact('cart', 'count', 'products','brand','category'));
         }
         else
         {
-            return view('shop.shop', compact('product','brand','category'));
+            return view('shop.shop', compact('products','brand','category'));
+        }
+    }
+
+    public function courses()
+    {
+        $courses=Course::all();
+        if(Auth::id())
+        {
+            $id=Auth::user()->id;
+            $cart=Cart::where('user_id', '=', $id)->get();
+            $count=Cart::where('user_id', '=', $id)->count();
+            
+            return view('courses.coursesview', compact('cart', 'count', 'courses'));
+        }
+        else
+        {
+            return view('courses.coursesview', compact('courses'));
+        }
+    }
+
+    public function course_details($id)
+    {
+        $course=Course::find($id);
+
+
+        $images = $course->images;
+
+        if(Auth::id())
+        {
+            $id=Auth::user()->id;
+            $cart=Cart::where('user_id', '=', $id)->get();
+            $count=Cart::where('user_id', '=', $id)->count();
+            
+            return view('coursetype.course', compact('course','cart', 'count', 'images'));
+        }
+        else
+        {
+            return view('coursetype.course', compact('course'));
         }
     }
 
@@ -299,7 +338,7 @@ class HomeController extends Controller
     }
 
 
-    public function  searchProdUser(Request $request)
+    public function searchProdUser(Request $request)
     {
         $searchproduct=$request->search;
 
@@ -307,6 +346,26 @@ class HomeController extends Controller
             ->orWhere('title','LIKE',"%$searchproduct%")->get();
 
         return view('home.userpage',compact('product'));
+    }
+
+    public function category($category)
+    {
+        $products = Product::where('category', '=', $category)->paginate(6);
+
+        $brand=Brand::all();
+        $category=Category::all();
+        if(Auth::id())
+        {
+            $id=Auth::user()->id;
+            $cart=Cart::where('user_id', '=', $id)->get();
+            $count=Cart::where('user_id', '=', $id)->count();
+            return view('shop.shop', compact('cart', 'count', 'products','brand','category'));
+        }
+        else
+        {
+            return view('shop.shop', compact('products','brand','category'));
+        }
+
     }
     
 }

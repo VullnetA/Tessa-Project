@@ -10641,3 +10641,24 @@ Go Top CSS
   max-width:400 px;
   height:400px;
 }
+
+.haircolor{
+  display: flex;
+  flex-direction: row;
+  gap: 200px;
+  padding-left: 90px;
+  padding-top: 50px;
+}
+
+.colorImage{
+  width: 150px;
+}
+
+.haircolorimg{
+  display: flex;
+  flex-direction: row;
+}
+
+.hairtext{
+  align-items: center;
+}

@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="zxx">
     <head>
-    <base href="/public">
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -31,18 +30,18 @@
     <body>
         <!-- Start Header Area-->
         <div id="appendCartNumber">
-        @include('shop.header')
+        @include('courses.header')
         </div>
         <!-- End Header Area-->
 
         <!-- Start Page Title Area -->
-        @include('shop.pageTitle')
+        @include('courses.pageTitle')
         <!-- End Page Title Area -->
 
-        <!-- Start Products Area -->
-        @include('shop.products')
-        <!-- End Products Area -->
-
+        <!-- Start Courses Area -->
+        @include('courses.allcourses')
+        <!-- End Courses Area -->
+        
         <!-- Start Facility Area -->
         @include('home.facilityArea')
         <!-- End Facility Area -->
@@ -50,6 +49,10 @@
         <!-- Start Instagram Area -->
         @include('home.instagram')
         <!-- End Instagram Area -->
+
+        <!-- Start QuickView Modal Area -->
+        @include('home.quickview')
+        <!-- End QuickView Modal Area -->
 
         <!-- Start Footer Area -->
         @include('home.footer')

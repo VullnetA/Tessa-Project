@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Course;
 use App\Models\Order;
 use App\Models\Brand;
 use App\Models\User;
+use App\Models\Image;
 use App\Notifications\SendEmailNotification;
 use Illuminate\Support\Facades\Notification;
 
@@ -92,12 +94,9 @@ class AdminController extends Controller
         $request->image->move('product',$imagename);
         $product->image=$imagename;
 
-
         $product->save();
 
-
         return redirect()->back()->with('message','Product Added Successfully');
-
     }
 
     public function show_product()
@@ -148,6 +147,89 @@ class AdminController extends Controller
         $product->save();
 
         return redirect()->back()->with('message','Product Updated Successfully');
+    }
+
+    public function view_course()
+    {
+        return view('admin.course');
+    }
+
+    public function add_course(Request $request)
+    {
+        $course=new Course;
+        $course->title=$request->title;
+        $course->category=$request->category;
+        $course->description=$request->description;
+
+        $image=$request->cover;
+        $imagename=time().'.'.$image->getClientOriginalExtension();
+        $request->cover->move('course',$imagename);
+        $course->cover=$imagename;
+
+        $course->save();
+        
+        if($request->has('images')){
+            foreach ($request->file('images') as $image){
+                
+                $imageName=$request->title.'-image-'.time().rand(1,1000).'.'.$image->extension();
+                $image->move('course',$imageName);
+
+                Image::create([
+                    'course_id'=>$course->id,
+                    'image'=>$imageName
+                ]);
+            }
+        }
+        return redirect()->back()->with('message','Course Added Successfully');
+    }
+
+    public function show_course()
+    {
+        $course=Course::all();
+        return view('admin.show_course',compact('course'));
+    }
+
+    public function view_images ($id){
+        $course=Course::find($id);
+
+        $images = $course->images;
+        return view('admin.images',compact('course','images'));
+    }
+
+    public function delete_course($id)
+    {
+        $course=Course::find($id);
+
+        $course->delete();
+
+        return redirect()->back()->with('message','Course Deleted Successfully');
+    }
+
+    public function update_course($id)
+    {
+        $course=Course::find($id);
+        return view('admin.update_course',compact('course'));
+    }
+
+    public function update_course_confirm(Request $request, $id)
+    {
+        $course=Course::find($id);
+        $course->title=$request->title;
+        $course->category=$request->category;
+        $course->description=$request->description;
+
+        $image=$request->cover;
+
+        if($image)
+        {
+            $imagename=time().'.'.$image->getClientOriginalExtension();
+            $request->cover->move('course',$imagename);
+
+            $course->cover=$imagename;
+        }
+
+        $course->save();
+        return redirect()->back()->with('message','Course Updated Successfully');
     }
 
     public function order()
