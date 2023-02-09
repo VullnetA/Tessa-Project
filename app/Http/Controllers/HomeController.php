@@ -27,17 +27,17 @@ class HomeController extends Controller
     public function index()
     {
         $product=Product::paginate(3);
-
+        $brand=Brand::all();
         if(Auth::id())
         {
             $id=Auth::user()->id;
             $cart=Cart::where('user_id', '=', $id)->get();
             $count=Cart::where('user_id', '=', $id)->count();
-            return view('home.userpage', compact('product', 'cart', 'count'));
+            return view('home.userpage', compact('product', 'cart', 'count','brand'));
         }
         else
         {
-            return view('home.userpage', compact('product'));
+            return view('home.userpage', compact('product','brand'));
         }
 
     }
@@ -45,6 +45,7 @@ class HomeController extends Controller
     public function redirect()
     {
         $usertype=Auth::user()->usertype;
+        $brand=Brand::all();
 
         if($usertype=='1')
         {
@@ -64,7 +65,7 @@ class HomeController extends Controller
             $total_processing=Order::where('delivery_status','=','processing')->get()->count();
 
             return view('admin.home',compact('total_product','total_order',
-                'total_user','total_revenue','total_delivered','total_processing'));
+                'total_user','total_revenue','total_delivered','total_processing', 'brand'));
         }
 
         else{
@@ -72,7 +73,7 @@ class HomeController extends Controller
             $id=Auth::user()->id;
             $cart=Cart::where('user_id', '=', $id)->get();
             $count=Cart::where('user_id', '=', $id)->count();
-            return view('home.userpage',compact('product','cart','count'),['usertype'=>$usertype]);
+            return view('home.userpage',compact('product','cart','count','brand'),['usertype'=>$usertype]);
         }
     }
 
@@ -132,7 +133,7 @@ class HomeController extends Controller
             $id=Auth::user()->id;
             $cart=Cart::where('user_id', '=', $id)->get();
             $count=Cart::where('user_id', '=', $id)->count();
-            
+
             return view('courses.coursesview', compact('cart', 'count', 'courses'));
         }
         else
@@ -153,7 +154,7 @@ class HomeController extends Controller
             $id=Auth::user()->id;
             $cart=Cart::where('user_id', '=', $id)->get();
             $count=Cart::where('user_id', '=', $id)->count();
-            
+
             return view('coursetype.course', compact('course','cart', 'count', 'images'));
         }
         else
@@ -249,12 +250,18 @@ class HomeController extends Controller
 
     public function checkout()
     {
-        $user=Auth::user();
+        if(Auth::id())
+        {
+            $id=Auth::user()->id;
+            $cart=Cart::where('user_id', '=', $id)->get();
+            $count=Cart::where('user_id', '=', $id)->count();
+            return view('checkout.checkout', compact('cart','count'));
 
-        $userid=$user->id;
-        $data=cart::where('user_id', '=', $userid)->get();
-
-        return view('checkout.checkout',compact('data'));
+        }
+        else
+        {
+            return redirect('login');
+        }
     }
 
     public function cash_order(Request $request)
@@ -341,11 +348,22 @@ class HomeController extends Controller
     public function searchProdUser(Request $request)
     {
         $searchproduct=$request->search;
+        $products=product::where('category','LIKE',"%$searchproduct%")->orWhere('vendor','LIKE',"%$searchproduct%")
+            ->orWhere('title','LIKE',"%$searchproduct%")->paginate(6);
 
-        $product=product::where('category','LIKE',"%$searchproduct%")->orWhere('vendor','LIKE',"%$searchproduct%")
-            ->orWhere('title','LIKE',"%$searchproduct%")->get();
+        $brand=Brand::all();
+        $category=Category::all();
+        if(Auth::id())
+        {
+            $id=Auth::user()->id;
+            $cart=Cart::where('user_id', '=', $id)->get();
+            $count=Cart::where('user_id', '=', $id)->count();
+            return view('shop.shop', compact('cart', 'count', 'products','brand','category'));
+        }else
+        {
+            return view('shop.shop', compact('products','brand','category'));
+        }
 
-        return view('home.userpage',compact('product'));
     }
 
     public function category($category)
@@ -367,5 +385,25 @@ class HomeController extends Controller
         }
 
     }
-    
+
+    public function brand($brand)
+    {
+        $products = Product::where('vendor', '=', $brand)->paginate(6);
+
+        $brand=Brand::all();
+        $category=Category::all();
+        if(Auth::id())
+        {
+            $id=Auth::user()->id;
+            $cart=Cart::where('user_id', '=', $id)->get();
+            $count=Cart::where('user_id', '=', $id)->count();
+            return view('shop.shop', compact('cart', 'count', 'products','brand','category'));
+        }
+        else
+        {
+            return view('shop.shop', compact('products','brand','category'));
+        }
+
+    }
+
 }

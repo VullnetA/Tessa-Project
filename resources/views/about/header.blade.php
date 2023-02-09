@@ -40,7 +40,7 @@
                     </li>
                   </ul>
                 </div>
-                
+
                 <div class="col-lg-6 col-md-12">
                   <ul class="header-top-menu">
 
@@ -59,7 +59,7 @@
                     <button class="button-dalje" role="button">
                       <span href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log out</span>
                     </button>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}                     
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}
                     </form>
                     </li>
 
@@ -73,7 +73,7 @@
                     @endauth
 
                     @endif
-                    
+
 
                   </ul>
                   <ul class="header-top-others-option">
@@ -274,7 +274,7 @@
                           data-bs-target="#sidebarModal"
                         >
                           <span class="top-bar"></span>
-                          <span class="middle-bar"></span
+                          <span class="middle-bar"></span>
                           <span class="bottom-bar"></span>
                         </div>
                       </div>
@@ -293,15 +293,15 @@
                     <div class="search-overlay-layer"></div>
                     <div class="search-overlay-layer"></div>
                     <div class="search-overlay-layer"></div>
-                    
+
                     <div class="search-overlay-close">
                         <span class="search-overlay-close-line"></span>
                         <span class="search-overlay-close-line"></span>
                     </div>
 
                     <div class="search-overlay-form">
-                        <form>
-                            <input type="text" class="input-search" placeholder="Search here...">
+                        <form action="{{url('searchuser')}}" method="get">
+                            <input type="text" class="input-search" name="search" placeholder="Search here...">
                             <button type="submit"><i class='bx bx-search-alt'></i></button>
                         </form>
                     </div>
@@ -324,7 +324,7 @@
 
                             <div class="about-the-store">
                                 <p>One of the most popular on the web is shopping. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                
+
                                 <ul class="sidebar-contact-info">
                                     <li><i class='bx bx-map'></i> <a href="#" target="_blank">Gostivar , North Macedonia</a></li>
                                     <li><i class='bx bx-phone-call'></i> <a href="tel:+01321654214">+389 78 286 003</a></li>
@@ -411,7 +411,7 @@
                         ?>
                         @endforeach
 
-                       
+
                         <div class="products-cart-subtotal">
                             <span>Subtotal</span>
                             <span class="subtotal">{{$totalprice}}</span>
@@ -427,7 +427,7 @@
                         <h3>My Cart (0)</h3>
                         <div class="products-cart-content">
                             <div class="products-cart">
-                                
+
                             </div>
 
                         </div>

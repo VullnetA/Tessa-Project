@@ -6,29 +6,12 @@
                 </div>
                 
                 <div class="brand-slides owl-carousel owl-theme">
+                @foreach($brand as $brand)
                     <div class="brand-item">
-                        <a href="products-sidebar-fullwidth.html"><img src="assets/img/brand/shopbybrand1.jpg" alt="image"></a>
+                        <a href="{{ url('/brand/'.$brand->brand_name) }}"><img src="assets/img/brand/{{$brand->brand_name}}.jpg" alt="image"></a>
                     </div>
-
-                    <div class="brand-item">
-                        <a href="products-sidebar-fullwidth.html"><img src="assets/img/brand/shopbybrand2.jpg" alt="image"></a>
-                    </div>
-
-                    <div class="brand-item">
-                        <a href="products-sidebar-fullwidth.html"><img src="assets/img/brand/shopbybrand3.jpg" alt="image"></a>
-                    </div>
-
-                    <div class="brand-item">
-                        <a href="products-sidebar-fullwidth.html"><img src="assets/img/brand/shopbybrand4.jpg" alt="image"></a>
-                    </div>
-
-                    <div class="brand-item">
-                        <a href="products-sidebar-fullwidth.html"><img src="assets/img/brand/shopbybrand5.jpg" alt="image"></a>
-                    </div>
-
-                    <div class="brand-item">
-                        <a href="products-sidebar-fullwidth.html"><img src="assets/img/brand/shopbybrand6.jpg" alt="image"></a>
-                    </div>
+                @endforeach
+                    
                 </div>
             </div>
         </div>

@@ -4,10 +4,10 @@
        padding-left: 20px;
     }
     .qty-input{
-    
+
         max-width: 60px;
     }
-    
+
     .input-counter {
         display: flex;
         align-items: center;
@@ -30,22 +30,22 @@
         border-radius: 4px;
         margin: 0 10px;
       }
-    
+
     </style>
 
 
 <section class="haircolor">
   <div class="hairtext">
-    <h2>Choose your Hair Color:</h2>
+    <h3>Choose your Hair Color:</h3>
   </div>
   <div class="haircolorimg">
-    <img class="colorImage" src="{{ asset('assets/img/noyellow.webp') }}">
+    <a href="{{ url('/category/Fanola-hair') }}"><img class="colorImage" src="{{ asset('assets/img/noyellow.webp') }}"></a>
     <p>Fanola</p>
-    <img class="colorImage" src="{{ asset('assets/img/haircolor.jpg') }}">
-    <p>Fanola</p>
-    <img class="colorImage" src="{{ asset('assets/img/haircolor.jpg') }}">
-    <p>Fanola</p>
-    <img class="colorImage" src="{{ asset('assets/img/haircolor.jpg') }}">
+    <a href="{{ url('/category/Oro-hair') }}"><img class="colorImage" src="{{ asset('assets/img/haircolor.jpg') }}"></a>
+    <p>Oro</p>
+    <a href="{{ url('/category/RR-hair') }}"><img class="colorImage" src="{{ asset('assets/img/haircolor.jpg') }}"></a>
+    <p>RR</p>
+    <a href=""><img class="colorImage" src="{{ asset('assets/img/haircolor.jpg') }}"></a>
     <p>Fanola</p>
   </div>
 </section>
@@ -57,92 +57,25 @@
           <div class="col-lg-4 col-md-12">
             <div class="woocommerce-widget-area">
               <div class="woocommerce-widget collections-list-widget">
-                <h3 class="woocommerce-widget-title">Categories</h3>
+                <h3 class="woocommerce-widget-title">Select By Category:</h3>
 
                   <ul class="collections-list-row">
                   @foreach($category as $category)
                     <li>
-                      <a href="{{ url('/category/'.$category->category_name) }}">{{$category->category_name}}</a>
+                    <a href="{{ url('/category/'.$category->category_name) }}"><span>&#9788;</span> {{$category->category_name}}</a>
                     </li>
                   @endforeach
                   </ul>
-                
+
               </div>
-
-              <div class="woocommerce-widget price-list-widget">
-                <h3 class="woocommerce-widget-title">Price</h3>
-
-                <div class="collection-filter-by-price">
-                    <label>
-                        <input
-                          class="js-range-of-price"
-                          type="text"
-                          data-min="0"
-                          data-max="1055"
-                          name="filter_by_price"
-                          data-step="10"
-                        />
-                    </label>
-                </div>
-              </div>
-
-              <div class="woocommerce-widget size-list-widget">
-                <h3 class="woocommerce-widget-title">Size</h3>
-
-                <ul class="size-list-row">
-                  <li><a href="#">20</a></li>
-                  <li><a href="#">24</a></li>
-                  <li class="active"><a href="#">36</a></li>
-                  <li><a href="#">30</a></li>
-                  <li><a href="#">XS</a></li>
-                  <li><a href="#">S</a></li>
-                  <li><a href="#">M</a></li>
-                  <li><a href="#">L</a></li>
-                  <li><a href="#">L</a></li>
-                  <li><a href="#">XL</a></li>
-                </ul>
-              </div>
-
-              <div class="woocommerce-widget color-list-widget">
-                <h3 class="woocommerce-widget-title">Color</h3>
-
-                <ul class="color-list-row">
-                  <li class="active">
-                    <a href="#" title="Black" class="color-black"></a>
-                  </li>
-                  <li><a href="#" title="Red" class="color-red"></a></li>
-                  <li><a href="#" title="Yellow" class="color-yellow"></a></li>
-                  <li><a href="#" title="White" class="color-white"></a></li>
-                  <li><a href="#" title="Blue" class="color-blue"></a></li>
-                  <li><a href="#" title="Green" class="color-green"></a></li>
-                  <li>
-                    <a
-                      href="#"
-                      title="Yellow Green"
-                      class="color-yellowgreen"
-                    ></a>
-                  </li>
-                  <li><a href="#" title="Pink" class="color-pink"></a></li>
-                  <li><a href="#" title="Violet" class="color-violet"></a></li>
-                  <li>
-                    <a
-                      href="#"
-                      title="Blue Violet"
-                      class="color-blueviolet"
-                    ></a>
-                  </li>
-                  <li><a href="#" title="Lime" class="color-lime"></a></li>
-                  <li><a href="#" title="Plum" class="color-plum"></a></li>
-                  <li><a href="#" title="Teal" class="color-teal"></a></li>
-                </ul>
-              </div>
+          
 
               <div class="woocommerce-widget brands-list-widget">
-                <h3 class="woocommerce-widget-title">Brands</h3>
+                <h3 class="woocommerce-widget-title">Select By Brand:</h3>
 
                 <ul class="brands-list-row">
                   @foreach($brand as $brand)
-                  <li><a href="#">{{$brand->brand_name}}</a></li>
+                  <li><a href="{{ url('/brand/'.$brand->brand_name) }}"><span>&#10029;</span> {{$brand->brand_name}}</a></li>
                   @endforeach
                 </ul>
               </div>
@@ -209,7 +142,7 @@
                 </div>
 
                 <div class="col-lg-4 col-md-4">
-                  <p>Showing 1 – 18 of 100</p>
+                  
                 </div>
 
                 <div class="col-lg-4 col-md-4">
@@ -233,7 +166,7 @@
 
 
               <div class="col-lg-4 col-md-6 col-sm-6 products-col-item">
-                <div class="single-products-box">
+                <div class="single-products-box product_data">
                   <div class="products-image">
                       <a href="{{url('product_details', $product->id)}}">
                         <img src="product/{{$product->image}}" class="main-image" alt="image">
@@ -242,7 +175,6 @@
 
                       <div class="products-button">
                           <ul>
-
                               <li>
                                   <div class="quick-view-btn">
                                       <a href="{{url('product_details', $product->id)}}" data-bs-toggle="modal" data-bs-target="#productsQuickView">
@@ -299,7 +231,9 @@
               <span class="text-center">
                 {{ $products->links('partials.my-paginate') }}
               </span>
-          
+
+        </div>
+      </div>
         </div>
       </div>
     </section>

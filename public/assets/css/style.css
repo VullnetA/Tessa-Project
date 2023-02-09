@@ -151,6 +151,19 @@ p:last-child {
   font-weight: 600;
 }
 
+input.default-btn{
+  display: inline-block;
+  border: 1px solid #f53f85;
+  padding: 10px 30px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  text-transform: uppercase;
+  background-color: #f53f85;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
 .default-btn:hover {
   background-color: transparent;
   color: #000000;
@@ -7830,7 +7843,7 @@ Woocommerce Widget Sidebar CSS
   position: relative;
   padding-bottom: 8px;
   border-bottom: 1px solid #eeeeee;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 700;
 }
 
@@ -7904,7 +7917,7 @@ Woocommerce Widget Sidebar CSS
 .woocommerce-widget-area .collections-list-widget .collections-list-row {
   padding-left: 0;
   margin-bottom: 0;
-  list-style-type: none;
+  list-style-type:none;
 }
 
 .woocommerce-widget-area .collections-list-widget .collections-list-row li {
@@ -7914,8 +7927,8 @@ Woocommerce Widget Sidebar CSS
 .woocommerce-widget-area .collections-list-widget .collections-list-row li a {
   display: inline-block;
   position: relative;
-  padding-left: 25px;
-  font-size: 15px;
+  padding-left: 0px;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -7928,8 +7941,6 @@ Woocommerce Widget Sidebar CSS
   -webkit-transition: 0.5s;
   transition: 0.5s;
   height: 15px;
-  border-radius: 50%;
-  border: 1px solid #000000;
 }
 
 .woocommerce-widget-area .collections-list-widget .collections-list-row li a:hover {
@@ -8149,8 +8160,8 @@ Woocommerce Widget Sidebar CSS
 .woocommerce-widget-area .brands-list-widget .brands-list-row li a {
   display: inline-block;
   position: relative;
-  padding-left: 25px;
-  font-size: 15px;
+  padding-left: 0px;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -8163,8 +8174,6 @@ Woocommerce Widget Sidebar CSS
   -webkit-transition: 0.5s;
   transition: 0.5s;
   height: 15px;
-  border-radius: 3px;
-  border: 1px solid #000000;
 }
 
 .woocommerce-widget-area .brands-list-widget .brands-list-row li a:hover {
@@ -10645,7 +10654,7 @@ Go Top CSS
 .haircolor{
   display: flex;
   flex-direction: row;
-  gap: 200px;
+  gap: 180px;
   padding-left: 90px;
   padding-top: 50px;
 }
@@ -10661,4 +10670,38 @@ Go Top CSS
 
 .hairtext{
   align-items: center;
+}
+
+.contact{
+  font-size: 25px;
+  font-weight: 600;
+  color: #f53f85;
+}
+
+.w3rcontainer{
+  border: 1px solid #f53f85;
+  border-radius: 2px;
+} 
+.hover-underline-animation {
+ display: inline-block;
+ position: relative;
+ color: #f53f85;
+}
+
+.hover-underline-animation:after {
+ content: '';
+ position: absolute;
+ width: 100%;
+ transform: scaleX(0);
+ height: 1px;
+ bottom: 0;
+ left: 0;
+ background-color: #f53f85;
+ transform-origin: bottom right;
+ transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover:after {
+ transform: scaleX(1);
+ transform-origin: bottom left;
 }

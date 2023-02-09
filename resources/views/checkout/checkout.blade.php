@@ -28,7 +28,7 @@
 
   <body>
     <!-- Start Top Header Area -->
-    @include('product.header')    
+    @include('shop.header')    
     <!-- End Header Area -->
 
     <!-- Start Page Title -->

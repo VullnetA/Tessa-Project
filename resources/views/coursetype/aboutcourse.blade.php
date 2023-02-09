@@ -31,6 +31,8 @@
                   <p>
                     {{$course->description}}
                   </p>
+
+                  <a class="contact hover-underline-animation" href="/contact">Contact us here for more information</a>
                 </div>
               </div>
             </div>

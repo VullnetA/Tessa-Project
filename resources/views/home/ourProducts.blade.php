@@ -65,20 +65,7 @@
                                     <img src="product/{{$products->image}}" class="hover-image" alt="image">
                                 </a>
 
-                                <div class="products-button">
-                                    <ul>
-
-                                        <li>
-                                            <div class="quick-view-btn">
-                                                <a href="{{url('product_details', $products->id)}}" data-bs-toggle="modal" data-bs-target="#productsQuickView">
-                                                    <i class='bx bx-search-alt'></i>
-                                                    <span class="tooltip-label">Quick View</span>
-                                                </a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-
+                                
                                 @if($products->new==1)
                                 <div class="new-tag">New!</div>
                                 @endif
@@ -123,11 +110,7 @@
 
                             </div>
 
-                            <span class="products-discount">
-                                <span>
-                                    20% OFF
-                                </span>
-                            </span>
+                            
                         </div>
                     </div>
                     @endforeach

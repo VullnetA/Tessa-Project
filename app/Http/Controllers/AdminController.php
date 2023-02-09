@@ -189,7 +189,7 @@ class AdminController extends Controller
         return view('admin.show_course',compact('course'));
     }
 
-    public function view_images ($id){
+    public function view_images($id){
         $course=Course::find($id);
 
         $images = $course->images;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
- 
+  <base href="/public"> 
     <!-- Required meta tags -->
     @include('admin.css')
 
@@ -103,6 +103,17 @@ td, th{
       <div class="main-panel">
           <div class="content-wrapper">
 
+          @if(session()->has('message'))
+
+            <div class="alert alert-success">
+
+              <button type="button" class="close" data_dismiss="alert" aria-hidden="true">x</button>
+  
+              {{session()->get('message')}}
+
+            </div>
+
+          @endif
 
          
 <div  class="filter">
@@ -116,7 +127,7 @@ td, th{
 
                     @foreach($images as $image)
                     <td>
-                        <img src="/course/{{$image->image}}" alt="">
+                        <img height="100" src="/course/{{$image->image}}" alt="">
                     </td>
                     @endforeach
                     

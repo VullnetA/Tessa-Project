@@ -94,6 +94,8 @@ Route::get('/course_details/{id}',[HomeController::class, 'course_details']);
 
 Route::get('/category/{category}',[HomeController::class, 'category']);
 
+Route::get('/brand/{brand}',[HomeController::class, 'brand']);
+
 Route::post('/add_cart', [HomeController::class, 'add_cart']);
 
 Route::get('/show_cart',[HomeController::class, 'show_cart']);

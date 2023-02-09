@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="zxx">
     <head>
+        <base href="/public">
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="csrf-token" content="{{ csrf_token() }}" />

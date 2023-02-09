@@ -77,9 +77,7 @@
                     <a href="#" class="optional-btn">Continue Shopping</a>
                 </div>
 
-                <div class="col-lg-5 col-sm-5 col-md-5 text-end">
-                    <a href="#" class="default-btn">Update Cart</a>
-                </div>
+                
 
             </div>
         </div>

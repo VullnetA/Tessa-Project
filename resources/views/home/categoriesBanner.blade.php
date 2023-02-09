@@ -21,10 +21,10 @@
                                     <img src="assets/img/partner/fanolared.jpg" alt="image">
         
                                     <div class="content">
-                                        <h3>Our Popular Products</h3>
+                                        <h3>Fanola Hair Colors</h3>
                                     </div>
 
-                                    <a href="products-sidebar-fullwidth.html" class="link-btn"></a>
+                                    <a href="{{ url('/category/Fanola-hair') }}" class="link-btn"></a>
                                 </div>
                             </div>
 
@@ -33,10 +33,10 @@
                                     <img src="assets/img/partner/rr-linee-noline.jpg" alt="image">
         
                                     <div class="content">
-                                        <h3>Hot Trending Products</h3>
+                                        <h3>Oro Hair Colors</h3>
                                     </div>
 
-                                    <a href="products-sidebar-fullwidth.html" class="link-btn"></a>
+                                    <a href="{{ url('/category/Oro-hair') }}" class="link-btn"></a>
                                 </div>
                             </div>
 
@@ -45,10 +45,10 @@
                                     <img src="assets/img/partner/rr-linee-noline.jpg" alt="image">
         
                                     <div class="content">
-                                        <h3>Hot Trending Products</h3>
+                                        <h3>RR Hair Colors</h3>
                                     </div>
 
-                                    <a href="products-sidebar-fullwidth.html" class="link-btn"></a>
+                                    <a href="{{ url('/category/RR-hair') }}" class="link-btn"></a>
                                 </div>
                             </div>
 

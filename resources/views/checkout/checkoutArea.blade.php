@@ -109,19 +109,19 @@
                     </thead>
 
                     <tbody>
-                    @foreach($data as $data)
+                    @foreach($cart as $cart)
                       <tr>
                         <td class="product-name">
-                          <a href="#">{{$data->product_title}}</a>
+                          <a href="#">{{$cart->product_title}}</a>
                         </td>
 
                         <td class="product-total">
-                          <span class="subtotal-amount">{{$data->price}} MKD</span>
+                          <span class="subtotal-amount">{{$cart->unitprice*$cart->quantity}} MKD</span>
                         </td>
                       </tr>
 
                     <?php
-                    $totalprice=$totalprice + $data->price
+                    $totalprice=$totalprice + $cart->unitprice*$cart->quantity
                     ?>
                     @endforeach
 
@@ -161,8 +161,12 @@
                 </div>
 
                 <div class="payment-box">
-                  <input type="submit" value="PURCHASE WITH CASH ON DELIVERY" class="default-btn">
-                  <a href="#" class="default-btn">PURCHASE WITH CARD PAYMENT</a>
+                  <center>
+                  <button type="submit" class="default-btn">PURCHASE WITH CASH ON DELIVERY</button>
+                  </center>
+                  <center>
+                  <button href="#" class="default-btn">PURCHASE WITH CARD PAYMENT</button>
+                  </center>
                 </div>
             
               </div>
