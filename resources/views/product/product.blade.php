@@ -3,6 +3,7 @@
   <head>
     <base href="/public">
     <!-- Required meta tags -->
+    <meta name="csrf-token" content="{{ csrf_token()}}"/>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -34,8 +35,10 @@
   <body>
 
     <!-- Start Header Area-->
-    @include('product.header')
-    <!-- End Header Area-->
+    <div id="appendCartNumber">
+      @include('shop.header')
+    </div>
+    <!-- End Header Area-->
 
     <!-- Start Page Title -->
     @include('product.pageTitle')

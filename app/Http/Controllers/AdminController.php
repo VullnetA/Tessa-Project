@@ -85,8 +85,10 @@ class AdminController extends Controller
         $product->price=$request->price;
         $product->Stylistprice=$request->Stylistprice;
         $product->discount_price=$request->dis_price;
-        $product->vendor=$request->vendor;
-        $product->new=$request->new;
+        $product->brand=$request->brand;
+        $product->Offer=$request->Offer;
+        $product->HairType=$request->HairType;
+        $product->PopularProducts=$request->PopularProducts;
 
 
         $image=$request->image;
@@ -117,8 +119,9 @@ class AdminController extends Controller
         $product=Product::find($id);
 
         $category=Category::all();
+        $brand=Brand::all();
 
-        return view('admin.update_product',compact('product', 'category'));
+        return view('admin.update_product',compact('product', 'category','brand'));
     }
 
     public function update_product_confirm(Request $request, $id)
@@ -130,9 +133,11 @@ class AdminController extends Controller
         $product->quantity=$request->quantity;
         $product->price=$request->price;
         $product->discount_price=$request->dis_price;
-        $product->vendor=$request->vendor;
-        $product->new=$request->new;
+        $product->brand=$request->brand;
+        $product->Offer=$request->Offer;
         $product->category=$request->category;
+        $product->HairType=$request->HairType;
+        $product->PopularProducts=$request->PopularProducts;
 
         $image=$request->image;
 
@@ -262,7 +267,7 @@ class AdminController extends Controller
     {
         $searchproduct=$request->search;
 
-        $product=product::where('category','LIKE',"%$searchproduct%")->orWhere('vendor','LIKE',"%$searchproduct%")
+        $product=product::where('category','LIKE',"%$searchproduct%")->orWhere('brand','LIKE',"%$searchproduct%")
             ->orWhere('title','LIKE',"%$searchproduct%")->get();
 
         return view('admin.show_product',compact('product'));

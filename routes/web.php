@@ -131,5 +131,5 @@ Route::get('/approve_account/{id}',[AdminController::class, 'approve_account']);
 Route::get('/send_email/{id}',[AdminController::class, 'send_email']);
 
 route::post('/send_user_email/{id}',[AdminController::class, 'send_user_email']);
-
+Route::get('/myorder',[HomeController::class, 'MyOrders']);
 

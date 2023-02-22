@@ -42,35 +42,35 @@
                   <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                       <label>First Name <span class="required">*</span></label>
-                      <input type="text" name="firstname" class="form-control" />
+                      <input type="text" required="" name="firstname" class="form-control" />
                     </div>
                   </div>
 
                   <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                       <label>Last Name <span class="required">*</span></label>
-                      <input type="text" name="lastname" class="form-control" />
+                      <input type="text" required="" name="lastname" class="form-control" />
                     </div>
                   </div>
 
                   <div class="col-lg-12 col-md-12">
                     <div class="form-group">
                       <label>Company Name</label>
-                      <input type="text" name="company" class="form-control" />
+                      <input type="text" required="" name="company" class="form-control" />
                     </div>
                   </div>
 
                   <div class="col-lg-12 col-md-6">
                     <div class="form-group">
                       <label>Address <span class="required">*</span></label>
-                      <input type="text" name="address" class="form-control" />
+                      <input type="text" required="" name="address" class="form-control" />
                     </div>
                   </div>
 
                   <div class="col-lg-6 col-md-6">
                     <div class="form-group">
                       <label>Phone <span class="required">*</span></label>
-                      <input type="text" name="phone" class="form-control" />
+                      <input type="text" required="" name="phone" class="form-control" />
                     </div>
                   </div>
 
@@ -79,7 +79,7 @@
                       <label
                         >Postcode / Zip <span class="required">*</span></label
                       >
-                      <input type="text" name="postcode" class="form-control" />
+                      <input type="text" required="" name="postcode" class="form-control" />
                     </div>
                   </div>
 
@@ -88,7 +88,7 @@
                       <label
                         >Email Address <span class="required">*</span></label
                       >
-                      <input type="email" name="email" class="form-control" />
+                      <input type="email" required="" name="email" class="form-control" />
                     </div>
                   </div>
                 </div>

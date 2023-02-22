@@ -2701,10 +2701,7 @@ Products CSS
   color: #f53f85;
 }
 
-.single-products-box:hover .products-content .price {
-  opacity: 0;
-  visibility: hidden;
-}
+
 
 .single-products-box:hover .products-content .add-to-cart {
   -webkit-transform: translateX(0);
@@ -10640,17 +10637,6 @@ Go Top CSS
   padding-top: 10px;;
 }
 
-
-.main-image{
-  max-width:400 px;
-  height:400px;
-}
-
-.hover-image{
-  max-width:400 px;
-  height:400px;
-}
-
 .haircolor{
   display: flex;
   flex-direction: row;
@@ -10704,4 +10690,8 @@ Go Top CSS
 .hover-underline-animation:hover:after {
  transform: scaleX(1);
  transform-origin: bottom left;
+}
+.img-orderimage{
+  max-width: 80px;
+  max-height: 80px;
 }

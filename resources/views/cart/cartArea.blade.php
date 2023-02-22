@@ -74,7 +74,7 @@
         <div class="cart-buttons">
             <div class="row align-items-center">
                 <div class="col-lg-7 col-sm-7 col-md-7">
-                    <a href="#" class="optional-btn">Continue Shopping</a>
+                    <a href="{{url('/shop')}}" class="optional-btn">Continue Shopping</a>
                 </div>
 
                 

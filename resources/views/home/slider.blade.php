@@ -8,12 +8,12 @@
                                 <div class="col-lg-6 col-md-12">
                                     <div class="banner-content text-white">
                                         <div class="line"></div>
-                                        <span class="sub-title">Trending Women's Collection</span>
-                                        <h1>New Inspiration 2021</h1>
-                                        <p>Click here to shop in your local currency. We ship over 2 million products around the world!</p>
+                                        <span class="sub-title">Products For All Your Needs</span>
+                                        <h1>New Inspiration!!! New Look!!!</h1>
+                                        <p>We ship All over Macedonia!!!</p>
                                         <div class="btn-box">
-                                            <a href="products-sidebar-fullwidth.html" class="default-btn">Shop Women's</a>
-                                            <a href="products-sidebar-fullwidth.html" class="optional-btn">Shop Men's</a>
+                                            <a href="/shop" class="default-btn">Go To Shop</a>
+                                            <a href="/courses" class="optional-btn">Our Courses</a>
                                         </div>
                                     </div>
                                 </div>
@@ -31,12 +31,12 @@
                                 <div class="col-lg-6 col-md-12">
                                     <div class="banner-content text-white">
                                         <div class="line"></div>
-                                        <span class="sub-title">Make Your Fashion Smarter</span>
-                                        <h1>Clothing made for you!</h1>
-                                        <p>Click here to shop in your local currency. We ship over 2 million products around the world!</p>
+                                        <span class="sub-title">New Inspiration!!! New Look!!!</span>
+                                        <h1>Products For All Your Needs</h1>
+                                        <p>We ship All over Macedonia!!!</p>
                                         <div class="btn-box">
-                                            <a href="products-sidebar-fullwidth.html" class="default-btn">Shop Women's</a>
-                                            <a href="products-sidebar-fullwidth.html" class="optional-btn">Shop Men's</a>
+                                            <a href="/shop" class="default-btn">Go To Shop</a>
+                                            <a href="/courses" class="optional-btn">Our Courses</a>
                                         </div>
                                     </div>
                                 </div>
@@ -54,12 +54,12 @@
                                 <div class="col-lg-6 col-md-12">
                                     <div class="banner-content text-white">
                                         <div class="line"></div>
-                                        <span class="sub-title">Clothing Made For You!</span>
-                                        <h1>Your Fashion Smarter</h1>
-                                        <p>Click here to shop in your local currency. We ship over 2 million products around the world!</p>
+                                        <span class="sub-title">We ship All over Macedonia!!!</span>
+                                        <h1>All You Need in One Place</h1>
+                                        <p>New Inspiration!!! New Look!!!</p>
                                         <div class="btn-box">
-                                            <a href="products-sidebar-fullwidth.html" class="default-btn">Shop Women's</a>
-                                            <a href="products-sidebar-fullwidth.html" class="optional-btn">Shop Men's</a>
+                                            <a href="/shop" class="default-btn">Go To Shop</a>
+                                            <a href="/courses" class="optional-btn">Our Courses</a>
                                         </div>
                                     </div>
                                 </div>

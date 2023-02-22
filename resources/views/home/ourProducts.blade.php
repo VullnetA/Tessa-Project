@@ -66,9 +66,9 @@
                                 </a>
 
                                 
-                                @if($products->new==1)
-                                <div class="new-tag">New!</div>
-                                @endif
+                                
+                                <div class="new-tag">{{$products->Offer}}</div>
+                                
                             </div>
 
                             <div class="products-content">
@@ -106,7 +106,7 @@
                                         <span class="plus-btn"><i class="bx bx-plus"></i></span>
                                       </div>
                                     </div>
-                                  </div>
+                                </div>
 
                             </div>
 

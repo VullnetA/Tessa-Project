@@ -55,11 +55,11 @@
                   <div class="single-footer-widget pl-4">
                     <h3>Quick Links</h3>
                     <ul class="quick-links">
-                      <li><a href="index-2.html">Home</a></li>
-                      <li><a href="products-sidebar-fullwidth.html">Shop</a></li>
-                      <li><a href="blog-1.html">Courses</a></li>
-                      <li><a href="about.html">About Us</a></li>
-                      <li><a href="contact.html">Contact</a></li>
+                      <li><a href="{{url('/')}}">Home</a></li>
+                      <li><a href="{{url('/shop')}}">Shop</a></li>
+                      <li><a href="{{url('/courses')}}">Courses</a></li>
+                      <li><a href="{{url('/about')}}">About Us</a></li>
+                      <li><a href="{{url('/contact')}}">Contact</a></li>
                     </ul>
                   </div>
                 </div>
@@ -67,11 +67,8 @@
                   <div class="single-footer-widget">
                     <h3>Customer Support</h3>
                     <ul class="customer-support">
-                      <li><a href="login.html">My Account</a></li>
-                      <li><a href="checkout.html">Checkout</a></li>
-                      <li><a href="cart.html">Cart</a></li>
-                      <li><a href="track-order.html">Order Tracking</a></li>
-                      <li><a href="contact.html">Help & Support</a></li>
+                      <li><a href="{{ route('profile.show') }}">My Account</a></li>
+                      <li><a href="{{url('/contact')}}">Help & Support</a></li>
                     </ul>
                   </div>
                 </div>

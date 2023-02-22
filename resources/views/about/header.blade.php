@@ -54,7 +54,9 @@
                     <li>
                       <a href="login.html"><i class="bx bxs-user"></i> My Account</a>
                     </li>
-
+                    <li>
+                      <a href="{{url('myorder')}}"><i class="bx bxs-user"></i>My Orders</a>
+                    </li>
                     <li>
                     <button class="button-dalje" role="button">
                       <span href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Log out</span>

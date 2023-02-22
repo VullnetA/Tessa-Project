@@ -1,62 +1,61 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
- 
     <!-- Required meta tags -->
     @include('admin.css')
 
     <style type="text/css">
+        .center{
+            margin:auto;
+            width: 50%;
+            border: 2px solid white;
+            text-align: center;
+            margin-top: 50px;
+        }
 
-    .filter{
- position: absolute;
- left: 14.5%;
- top: 10%;
- bottom: 0;
- right: 0;
- z-index: 1;
- 
- overflow-x: auto;
- background: rgb(233,76,161);
-background: -moz-linear-gradient(90deg, rgba(233,76,161,1) 0%, rgba(199,74,233,1) 100%);
-background: -webkit-linear-gradient(90deg, rgba(233,76,161,1) 0%, rgba(199,74,233,1) 100%);
-background: linear-gradient(90deg, rgba(233,76,161,1) 0%, rgba(199,74,233,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#e94ca1",endColorstr="#c74ae9",GradientType=1);
+        .font_size{
+            text-align:center;
+            font-size: 40px;
+            padding-top: 20px;
+        }
 
-}
+        .img_size{
+            max-width: 55px;
+            max-height: 60px;
+        }
 
-.center{
-position: absolute;
-left: 10%;
- top: 20%;
- bottom: 10%;
- right: 10%;
- border-spacing: 0;
- box-shadow: 0 2px 15px rgba(64,64,64,.7);
- border-radius: 12px 12px 0 0;
+        .th_color{
+            background: skyblue;
+        }
+
+        .th_deg{
+            padding: 10px;
+        }
+        .readmore{
+  max-width: 0;
  overflow: hidden;
- 
-
-
-
+ text-overflow: ellipsis;
+ white-space: nowrap;
 }
-td , th{
- padding: 15px 20px;
- text-align: center;
- 
-
+html, body, .container-scroller {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
-th{
- background-color: #ba68c8;
- color: #fafafa;
- font-family: 'Open Sans',Sans-serif;
- font-weight: 200;
- text-transform: uppercase;
 
+.filter {
+  height: 100%;
+  background: #883e94;
+  width: auto;
+  overflow-y: auto;
 }
+
 tr{
  width: 100%;
  background-color: #fafafa;
  font-family: 'Montserrat', sans-serif;
+ height: 60px;
 }
 
 td{
@@ -67,30 +66,25 @@ tr:nth-child(even){
  background-color: #eeeeee;
 }
 .font_size{
-    position: absolute;
-    top: 5%;
-    left:45%;
+   
+
+    font-family: 'Open Sans',Sans-serif;
             text-align:center;
             font-size: 40px;
-            padding-top: 20px;
-            color:black;
-            font-weight: 600;
+            padding-top: 60px;
+            color: #fafafa;
+            font-weight: 1000;
         }
+          
+        .th_color{
+ background-color: #ba68c8;
+ color: #fafafa;
+ font-family: 'Open Sans',Sans-serif;
+ font-weight: 100;
+ text-transform: uppercase;
 
-        .img_size{
-            max-width: 40px;
-            max-height: 40px;
-        }
-        table{
-  width: 80%; /* decrease the width of the table */
 }
 
-td, th{
-  padding: 14px; /* decrease the padding */
-  font-size: 16px; /* decrease the font-size */
-}
-
-   
     </style>
   </head>
   <body>
@@ -101,7 +95,7 @@ td, th{
       @include('admin.header')
       <!-- partial -->
       <div class="main-panel">
-          <div class="content-wrapper">
+          <div class="filter">
 
           @if(session()->has('message'))
 
@@ -127,8 +121,10 @@ td, th{
                     <th class="th_deg">Quantity</th>
                     <th class="th_deg">Price</th>
                     <th class="th_deg">Discount price</th>
-                    <th class="th_deg">Vendor</th>
-                    <th class="th_deg">New</th>
+                    <th class="th_deg">Brand</th>
+                    <th class="th_deg">Offer</th>
+                    <th class="th_deg">HairType</th>
+                    <th class="th_deg">Popular Products</th>
                     <th class="th_deg">Image</th>
                     <th class="th_deg">Delete</th>
                     <th class="th_deg">Edit</th>
@@ -137,13 +133,15 @@ td, th{
                 @foreach($product as $product)
                 <tr>
                     <td>{{$product->title}}</td>
-                    <td>{{$product->description}}</td>
+                    <td class="readmore">{{$product->description}}</td>
                     <td>{{$product->category}}</td>
                     <td>{{$product->quantity}}</td>
                     <td>{{$product->price}}</td>
                     <td>{{$product->discount_price}}</td>
-                    <td>{{$product->vendor}}</td>
-                    <td>{{$product->new}}</td>
+                    <td>{{$product->brand}}</td>
+                    <td>{{$product->Offer}}</td>
+                    <td>{{$product->HairType}}</td>
+                    <td>{{$product->PopularProducts}}</td>
                     <td >
                         <img class="img_size" src="/product/{{$product->image}}">
                     </td>

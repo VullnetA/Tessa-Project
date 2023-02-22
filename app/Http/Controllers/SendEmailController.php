@@ -6,12 +6,26 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\RequestEmail;
 use App\Mail\ContactMail;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Cart;
+
 
 class SendEmailController extends Controller
 {
     function index()
     {
-        return view('request');
+        if(Auth::id())
+        {
+            $id=Auth::user()->id;
+            $cart=Cart::where('user_id', '=', $id)->get();
+            $count=Cart::where('user_id', '=', $id)->count();
+            return view('request.requestform', compact( 'cart', 'count'));
+        }
+        else
+        {
+            return view('request.requestform');
+        }
+
     }
 
     function send(Request $request)

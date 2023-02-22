@@ -1,3 +1,5 @@
+<div id="appendCartNumber">
+
 <!-- Start Top Header Area -->
 <div class="top-header">
             <div class="container">
@@ -55,6 +57,9 @@
                       <a href="{{ route('profile.show') }}" onclick="event.preventDefault(); document.getElementById('account-form').submit();"><i class="bx bxs-user"></i>My Account</a>
                       <form id="account-form" action="{{ route('profile.show') }}" method="GET" style="display: none;">{{ csrf_field() }}
                       </form>
+                    </li>
+                    <li>
+                      <a href="{{url('myorder')}}"><i class="bx bxs-user"></i>My Orders</a>
                     </li>
 
                     <li>
@@ -438,3 +443,6 @@
             </div>
         </div>
 <!-- End Shopping Cart Modal -->
+
+</d iv>
+

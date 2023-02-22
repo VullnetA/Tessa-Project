@@ -1,4 +1,4 @@
-<!doctype html>
+ <!doctype html>
 <html lang="zxx">
     <head>
         <!-- Required meta tags -->
@@ -29,9 +29,9 @@
 
     <body>
         <!-- Start Header Area-->
-        <div id="appendCartNumber">
+
         @include('home.header')
-        </div>
+
         <!-- End Header Area-->
 
         <!-- Start Main Banner Area/ slider -->
@@ -62,9 +62,7 @@
         @include('home.facilityArea')
         <!-- End Facility Area -->
 
-        <!-- Start Products Area -->
-        @include('home.productArea')
-        <!-- End Products Area -->
+
 
         <!-- Start Instagram Area -->
         @include('home.instagram')

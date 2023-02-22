@@ -39,14 +39,14 @@
     <h3>Choose your Hair Color:</h3>
   </div>
   <div class="haircolorimg">
-    <a href="{{ url('/category/Fanola-hair') }}"><img class="colorImage" src="{{ asset('assets/img/noyellow.webp') }}"></a>
-    <p>Fanola</p>
-    <a href="{{ url('/category/Oro-hair') }}"><img class="colorImage" src="{{ asset('assets/img/haircolor.jpg') }}"></a>
-    <p>Oro</p>
-    <a href="{{ url('/category/RR-hair') }}"><img class="colorImage" src="{{ asset('assets/img/haircolor.jpg') }}"></a>
-    <p>RR</p>
-    <a href=""><img class="colorImage" src="{{ asset('assets/img/haircolor.jpg') }}"></a>
-    <p>Fanola</p>
+    <a href="{{ url('/category/No Yellow Color') }}"><img class="colorImage" src="{{ asset('assets/img/CategoriesBannerPhoto/No Yellow Color.jpg') }}"></a>
+
+    <a href="{{ url('/category/OroTherapy Color') }}"><img class="colorImage" src="{{ asset('assets/img/CategoriesBannerPhoto/OroTherapy Color.jpg') }}"></a>
+
+    <a href="{{ url('/category/RrLine Color') }}"><img class="colorImage" src="{{ asset('assets/img/CategoriesBannerPhoto/RrLine Color.jpg') }}"></a>
+
+    <a href="{{ url('/category/Fanola Color') }}"><img class="colorImage" src="{{ asset('assets/img/CategoriesBannerPhoto/Fanola Color.jpg') }}"></a>
+
   </div>
 </section>
 
@@ -81,15 +81,6 @@
               </div>
 
               <div class="woocommerce-widget aside-trending-widget">
-                <div class="aside-trending-products">
-                  <img src="assets/img/offer-bg.jpg" alt="image" />
-
-                  <div class="category">
-                    <h3>Top Trending</h3>
-                    <span>Spring/Summer 2021 Collection</span>
-                  </div>
-                  <a href="#" class="link-btn"></a>
-                </div>
               </div>
             </div>
           </div>

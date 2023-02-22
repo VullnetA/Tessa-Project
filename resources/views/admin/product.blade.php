@@ -84,13 +84,26 @@
                 <input class="text_color" type="text" name="dis_price" placeholder="Write a discount price">
                 </div>
                 <div class="div_design">
-                <label>Product Vendor:</label>
-                <input class="text_color" type="text" name="vendor" placeholder="Write a vendor" required="">
+                  <label>Product Brand:</label>
+                  <select class="text_color" name="brand" required="">
+                    <option value="" selected="">Add a brand here</option>
+                    @foreach($brand as $brand)
+                    <option value="{{$brand->brand_name}}">{{$brand->brand_name}}</option>
+                    @endforeach
+                  </select>
+                  </div>
+                <div class="div_design">
+                <label>Offer:</label>
+                <input class="text_color" type="text" name="Offer" placeholder="Write a Offer" required="">
                 </div>
                 <div class="div_design">
-                <label>New:</label>
-                <input class="text_color" type="text" name="new" placeholder="Write 1 if new" required="">
-                </div>
+                  <label>Hair Type:</label>
+                  <input class="text_color" type="text" name="HairType" placeholder="Write HairType" required="">
+                  </div>
+                <div class="div_design">
+                  <label>Popular Products:</label>
+                  <input class="text_color" type="text" name="PopularProducts" placeholder="Write 1 to show on Popular Products" required="">
+                  </div>
                 <div class="div_design">
                 <label>Product Category:</label>
                 <select class="text_color" name="category" required="">

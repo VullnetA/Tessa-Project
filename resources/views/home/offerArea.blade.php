@@ -4,10 +4,10 @@
                 <div class="row">
                     <div class="col-lg-5 col-md-6 offset-lg-7 offset-md-6">
                         <div class="offer-content-box">
-                            <span class="sub-title">Limited Time Offer!</span>
-                            <h2>-40% OFF</h2>
+                            <span class="sub-title">Start Shoping With Us Now!</span>
+                            <h2>Visit Our Shop</h2>
                             <p>Get The Best Deals Now</p>
-                            <a href="products-sidebar-fullwidth.html" class="default-btn">Discover Now</a>
+                            <a href="/shop" class="default-btn">Shop now</a>
                         </div>
                     </div>
                 </div>
